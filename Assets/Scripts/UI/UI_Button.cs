@@ -38,7 +38,9 @@ public class UI_Button : MonoBehaviour
         // enum Buttons 도 예외는 아니다 Buttons에 X를 딱 찍어가지고 정보를 다 추출할 수 있다. 뭐 예를들어 이름은 enum타입이고 이름은 Buttons라는애고 산하에는 PointButton이라는 애가 있다. 이런식으로 추출가능.
 
         Bind<Button> (typeof(Buttons)); // 지금은 Buttons라는 enum타입을 넘기겠다라는 말이다., 그리고 <Button>이라는 컴포넌트를 찾아서 매핑해주세요 이다.
-        Bind<Text> (typeof(Texts));
+        Bind<Text>(typeof(Texts));
+
+        Get<Text>((int)Texts.ScoreText).text = "Bind Test";
 
     }
 
@@ -62,6 +64,17 @@ public class UI_Button : MonoBehaviour
             
         }
 
+
+    }
+
+    // 우리가 매핑을 해주었으니까 이제는 GET하는 부분을 만들어보자
+    T Get<T>(int idx) where T : UnityEngine.Object
+    {
+        UnityEngine.Object[] objects = null;
+        if (_objects.TryGetValue(typeof(T), out objects) == false) // 여기서 키값을 추출해낼것이다.
+            return null;
+
+        return objects[idx] as T; // 왜 T로 캐스팅(형변환)을 하냐면은 objects가 가지고 있는 타입이 UnityEngine.Objects이니까 이것을 캐스팅하여 T로 뱉어준다.
 
     }
 
