@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{25634596-72EF-6BDD-9B4F-604CE48580E5}</ProjectGuid>
+    <ProjectGuid>{88D0B355-F6B5-3C21-4B19-7D681F4F32CB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,13 +54,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Controllers/PlayerController.cs" />
+    <Compile Include="Assets/Scripts/UI/UI_Button.cs" />
     <Compile Include="Assets/Scripts/Managers/ResourceManager.cs" />
     <Compile Include="Assets/Scripts/Utils/Define.cs" />
     <Compile Include="Assets/Scripts/Managers/Managers.cs" />
+    <Compile Include="Assets/Scripts/Utils/Test2.cs" />
+    <Compile Include="Assets/Scripts/Utils/Util.cs" />
     <Compile Include="Assets/Scripts/Managers/InputManager.cs" />
     <Compile Include="Assets/Scripts/Controllers/CameraController.cs" />
-    <Compile Include="Assets/Scripts/UI/UI_Button.cs" />
-    <Compile Include="Assets/Scripts/Utils/Util.cs" />
+    <Compile Include="Assets/Scripts/Utils/Test1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Resources/Art/UnityChan/Shader/Unitychan_chara_fuku.shader" />
@@ -299,7 +301,7 @@
       <HintPath>/Applications/Unity/Hub/Editor/2020.3.15f2/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+      <HintPath>/Users/gimnam-yeong/Csharp&amp;Unity/MMO_Unity/무제/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2020.3.15f2/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
