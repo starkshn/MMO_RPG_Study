@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Util
 {
+    // GameObject 전용 FIndChild 함수 만들어주자( 인터페이스는 비슷하니까 복붙하자 일단) 
+    public static GameObject FindChild(GameObject go, string name = null, bool recursive = false) // Generic 형식이 아니기 때문에 where T 삭제, 근데 모든 GameObject는 TRansform 컴포넌트를 가지고 있다. 그래서 컴포넌트 FindChild<T>를 호출해서 Trnasform으로 받는다.
+    {
+        Transform transform = FindChild<Transform>(go, name, recursive);
+        if (transform == null)
+            return null;
+
+        return transform.gameObject;
+    }
+
     // 여기다가 기능함 함수들만 넣어주면된다.
     public static T FindChild<T>(GameObject go, string name = null, bool recursive = false) where T : UnityEngine.Object  // 최상위 부모를 받고, 이름을 받는데 이름을 입력하지 않으면 이름은 비교하지않고 타입에만 해당하면 RETurn 해주자, boolean 받는다. recursive는 재귀적으로 찾을 것이냐 인데 자식을 찾았을때 그 자식만 찾을 것인지, 아니면 자식의 자식까지 쭉 스캔을 할것인지를 묻는 것이다. 
     {
