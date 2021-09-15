@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Reflection;
 using System;
@@ -36,6 +37,12 @@ public class UI_Button : UI_Base
 
     }
 
+    enum Images
+    {
+        ItemIcon,
+
+    }
+
     private void Start()
     {
         //Bind(Buttons); 이렇게 넘겨주고 싶지만 변수가 아니라서 넘겨줄 수 없다리
@@ -48,8 +55,16 @@ public class UI_Button : UI_Base
 
         Bind<GameObject>(typeof(GameObjects));
 
+        Bind<Image>(typeof(Images));
+
         Get<Text>((int)Texts.ScoreText).text = "Bind Test";
 
+        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
+
+        evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
+            // 람다식으로 함수를 선언함 
+             
     }
 
     //void Bind<T> (Type type) where T : UnityEngine.Object // enum을 넘겨주면은 (Buttons같은애들을 넘겨주면) 안에있는애들을 이름을 모두 찾아서 이름이 곂치는 애들이 있으 찾아서 알아서 자장하게끔 만들어 줄 것이다.
