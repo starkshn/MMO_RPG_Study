@@ -58,7 +58,10 @@ public class UI_Button : UI_Base
 
         Bind<Image>(typeof(Images));
 
-        Get<Text>((int)Texts.ScoreText).text = "Bind Test";
+
+        //GameObject go = GetImage((int)Images.ItemIcon).AddUIEvent(); // 이런식으로 하면 좋을거같은데 우리가 지금배운 문법으로는 이것이 구현이 안된다. => 그래서 Extension 문법 사용함
+        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        // action으로 OnButtonClicked 넘겨준거임 
 
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         GameObject go2 = GetImage((int)Images.Weapon).gameObject;
@@ -66,9 +69,11 @@ public class UI_Button : UI_Base
         AddUIEvent(go,((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
         AddUIEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
 
+
         //UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
         //evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
         // 람다식으로 함수를 선언함 
+
 
     }
 
@@ -126,11 +131,12 @@ public class UI_Button : UI_Base
 
     int _score = 0;
 
-   public void OnButtonClicked() // public 으로 꼭 해줘야한다.
+   public void OnButtonClicked(PointerEventData data) // public 으로 꼭 해줘야한다.
     {
-
+        Get<Text>((int)Texts.ScoreText).text = $"점수 : {_score}";
         _score++;
         //_text.text = $"점수 : {_score}";
+        Debug.Log("클릭됨!");
 
     }
 }
