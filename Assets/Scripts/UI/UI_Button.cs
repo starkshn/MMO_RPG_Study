@@ -40,6 +40,7 @@ public class UI_Button : UI_Base
     enum Images
     {
         ItemIcon,
+        Weapon,
 
     }
 
@@ -60,11 +61,15 @@ public class UI_Button : UI_Base
         Get<Text>((int)Texts.ScoreText).text = "Bind Test";
 
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
+        GameObject go2 = GetImage((int)Images.Weapon).gameObject;
 
-        evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
-            // 람다식으로 함수를 선언함 
-             
+        AddUIEvent(go,((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+        AddUIEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+
+        //UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
+        //evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
+        // 람다식으로 함수를 선언함 
+
     }
 
     //void Bind<T> (Type type) where T : UnityEngine.Object // enum을 넘겨주면은 (Buttons같은애들을 넘겨주면) 안에있는애들을 이름을 모두 찾아서 이름이 곂치는 애들이 있으 찾아서 알아서 자장하게끔 만들어 줄 것이다.
