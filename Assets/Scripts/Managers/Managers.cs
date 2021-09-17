@@ -11,12 +11,18 @@ public class Managers : MonoBehaviour
     static Managers Instance { get { Init(); return s_instance; } } // 유일한 매니저를 갖고온다 
 
     InputManager _input = new InputManager();
+    ResourceManager _resource = new ResourceManager();
+    UIManager ui = new UIManager();
+
+
     public static InputManager Input { get { return Instance._input;  } }
     // InputManager 를 반환하는데 Input이라는 함수 이름으로.
 
     // ResourceManager
-    ResourceManager _resource = new ResourceManager();
     public static ResourceManager Resource {  get { return Instance._resource;  } }
+
+    // UIManager
+    public static UIManager UI { get { return Instance.ui; } }
     
     
     void Start()

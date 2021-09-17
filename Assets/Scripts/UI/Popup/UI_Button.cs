@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.Reflection;
 using System;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Popup
 {
     // public 으로 해주거나 [SerializeField] 해주면 툴에서도 뜬다
     //[SerializeField]
@@ -66,7 +66,7 @@ public class UI_Button : UI_Base
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         GameObject go2 = GetImage((int)Images.Weapon).gameObject;
 
-        AddUIEvent(go,((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+        AddUIEvent(go, ((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
         AddUIEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
 
 

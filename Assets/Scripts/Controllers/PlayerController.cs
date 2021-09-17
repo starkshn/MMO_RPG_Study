@@ -27,7 +27,14 @@ public class PlayerController : MonoBehaviour
         // KeyBoardAction은 delegate 이기때문에 OnkeyBoardPressed로 구독을 해준다.
 
         // 여기에서 UI를 부르는것을 해보도록하자
-        Managers.Resource.Instantiate("UI/UI_Button"); // 여기에다가 경로를 입력
+        //Managers.Resource.Instantiate("UI/UI_Button");  // 여기에다가 경로를 입력 UI자동화 #3에서 잠시 주석처리함(귀찮아서)
+
+
+        // TEMP
+        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>("UI_Button");
+
+        Managers.UI.ClosePopupUI(ui); // 호출하면 마지막으로 띄운 팝업 닫
+
     }
 
     // State 패턴은 상태를 정의하게된다.
@@ -243,4 +250,6 @@ public class PlayerController : MonoBehaviour
         _state = PlayerState.Jump;
         
     }
+
+   
 }
