@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     Vector3 _destPos;
 
     InputManager isSpace = new InputManager();
-    bool Jump = false;
+    //bool Jump = false;
     
 
     void Start()
@@ -31,9 +31,14 @@ public class PlayerController : MonoBehaviour
 
 
         // TEMP
-        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>("UI_Button");
+        //UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>("UI_Button");
 
-        Managers.UI.ClosePopupUI(ui); // 호출하면 마지막으로 띄운 팝업 닫
+        //Managers.UI.ClosePopupUI(ui); // 호출하면 마지막으로 띄운 팝업 닫
+
+        // 팝업 실험
+        
+        Managers.UI.ShowPopupUI<UI_Button>();
+
 
     }
 

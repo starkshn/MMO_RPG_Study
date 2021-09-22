@@ -46,20 +46,47 @@ public class UI_Button : UI_Popup
 
     private void Start()
     {
+        init();
+
         //Bind(Buttons); 이렇게 넘겨주고 싶지만 변수가 아니라서 넘겨줄 수 없다리
         // Part1에서 c# 기초에서 reflection이라는 기능을 배웠제?
         // reflection은 여기 페이지에 존재하는 모든 오브젝트들에 대해서 그냥 X를 찍어가지고 X에대한 정보를 다 추출할 수 있다고 했었다.
         // enum Buttons 도 예외는 아니다 Buttons에 X를 딱 찍어가지고 정보를 다 추출할 수 있다. 뭐 예를들어 이름은 enum타입이고 이름은 Buttons라는애고 산하에는 PointButton이라는 애가 있다. 이런식으로 추출가능.
 
-        Bind<Button> (typeof(Buttons)); // 지금은 Buttons라는 enum타입을 넘기겠다라는 말이다., 그리고 <Button>이라는 컴포넌트를 찾아서 매핑해주세요 이다.
+        //Bind<Button> (typeof(Buttons)); // 지금은 Buttons라는 enum타입을 넘기겠다라는 말이다., 그리고 <Button>이라는 컴포넌트를 찾아서 매핑해주세요 이다.
+        //Bind<Text>(typeof(Texts));
+
+        //Bind<GameObject>(typeof(GameObjects));
+
+        //Bind<Image>(typeof(Images));
+
+
+        ////GameObject go = GetImage((int)Images.ItemIcon).AddUIEvent(); // 이런식으로 하면 좋을거같은데 우리가 지금배운 문법으로는 이것이 구현이 안된다. => 그래서 Extension 문법 사용함
+        //GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        //// action으로 OnButtonClicked 넘겨준거임 
+
+        //GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        //GameObject go2 = GetImage((int)Images.Weapon).gameObject;
+
+        //AddUIEvent(go, ((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+        //AddUIEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+
+
+        //UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
+        //evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
+        // 람다식으로 함수를 선언함 
+
+    }
+
+    public override void init()
+    {
+        base.init();
+
+        Bind<Button>(typeof(Buttons)); 
         Bind<Text>(typeof(Texts));
-
         Bind<GameObject>(typeof(GameObjects));
-
         Bind<Image>(typeof(Images));
 
-
-        //GameObject go = GetImage((int)Images.ItemIcon).AddUIEvent(); // 이런식으로 하면 좋을거같은데 우리가 지금배운 문법으로는 이것이 구현이 안된다. => 그래서 Extension 문법 사용함
         GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
         // action으로 OnButtonClicked 넘겨준거임 
 
@@ -68,19 +95,12 @@ public class UI_Button : UI_Popup
 
         AddUIEvent(go, ((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
         AddUIEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
-
-
-        //UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
-        //evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
-        // 람다식으로 함수를 선언함 
-
-
     }
 
     //void Bind<T> (Type type) where T : UnityEngine.Object // enum을 넘겨주면은 (Buttons같은애들을 넘겨주면) 안에있는애들을 이름을 모두 찾아서 이름이 곂치는 애들이 있으 찾아서 알아서 자장하게끔 만들어 줄 것이다.
     //{
     //    string[] names = Enum.GetNames(type);
-          
+
     //    UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
     //    // int[] numbers = new int[5]; 이것이 배열 선언방법(기초임)
 
@@ -126,7 +146,7 @@ public class UI_Button : UI_Popup
 
     //Image GetImage(int idx) { return Get<Image>(idx); }
 
-    
+
 
 
     int _score = 0;

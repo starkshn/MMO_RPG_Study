@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class UI_Scene : UI_Base
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public virtual void init()
     {
         
+        Managers.UI.SetCanvas(gameObject, false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
