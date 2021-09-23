@@ -357,3 +357,339 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3566.743204 seconds.
+  path: Assets/Resources/Prefabs/UI/Popup/UI_Button.prefab
+  artifactKey: Guid(dbb1f2e8b2bda4b4a9f6727c0f0ba1a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/UI/Popup/UI_Button.prefab using Guid(dbb1f2e8b2bda4b4a9f6727c0f0ba1a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef3597fcc23d190825a76dee17768c10') in 1.228573 seconds 
+  Import took 1.453097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.422911 seconds.
+  path: Assets/Resources/Prefabs/UI/Popup/UI_Button.prefab
+  artifactKey: Guid(dbb1f2e8b2bda4b4a9f6727c0f0ba1a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/UI/Popup/UI_Button.prefab using Guid(dbb1f2e8b2bda4b4a9f6727c0f0ba1a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f73aa88bea2b371c45fcc92e11a4445f') in 0.222165 seconds 
+  Import took 0.277814 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006608 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  7.213 seconds
+Domain Reload Profiling:
+	ReloadAssembly (7227ms)
+		BeginReloadAssembly (1433ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (172ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (971ms)
+		EndReloadAssembly (5621ms)
+			LoadAssemblies (507ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (514ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (65ms)
+			SetupLoadedEditorAssemblies (3767ms)
+				LogAssemblyErrors (11ms)
+				InitializePlatformSupportModulesInManaged (131ms)
+				SetLoadedEditorAssemblies (34ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (739ms)
+				ProcessInitializeOnLoadAttributes (2816ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (56ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.31 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1408 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 159.4 MB.
+System memory in use after: 159.5 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 1871.
+Total: 6.002166 ms (FindLiveObjects: 0.181834 ms CreateObjectMapping: 0.069791 ms MarkObjects: 5.343334 ms  DeleteObjects: 0.403959 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 11503.611917 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites
+  artifactKey: Guid(e3a5123eeaeabcb47b68c25bd63af922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites using Guid(e3a5123eeaeabcb47b68c25bd63af922) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dc25df382983707376714b515c4ef6f') in 0.545616 seconds 
+  Import took 0.807204 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.374802 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Lit UI
+  artifactKey: Guid(6610ac4b8457346ea809f21b89d27cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Lit UI using Guid(6610ac4b8457346ea809f21b89d27cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46390cfe3066d522d4da9c3fbaab4002') in 0.002184 seconds 
+  Import took 0.013370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.262571 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Decoration
+  artifactKey: Guid(2f548ddb7d7b841a6b8a20693ef7a74b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Decoration using Guid(2f548ddb7d7b841a6b8a20693ef7a74b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '433e7051a297201e9c86dbd6af618e2d') in 0.001293 seconds 
+  Import took 0.005040 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.513159 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Decoration/Icon1.png
+  artifactKey: Guid(be0d6a45537a1a64e9e6c4ce47a2d58a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Decoration/Icon1.png using Guid(be0d6a45537a1a64e9e6c4ce47a2d58a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d7aa63c2ea13d08c68fad6ae182c83e') in 3.082342 seconds 
+  Import took 3.124757 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000889 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Decoration/Icon2.png
+  artifactKey: Guid(fccea209f9ea7b1488225287813f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Decoration/Icon2.png using Guid(fccea209f9ea7b1488225287813f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '334f199697ce6e8c0e4c322363ac0530') in 0.032084 seconds 
+  Import took 0.040902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000337 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Decoration/Icon3.png
+  artifactKey: Guid(e484876f0cfbe8d46981ae0062b5e77f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Decoration/Icon3.png using Guid(e484876f0cfbe8d46981ae0062b5e77f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6996a8cbc73988374204af1c5f52d8b') in 0.015897 seconds 
+  Import took 0.020362 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.288169 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/SF UI/SF Generic.psd
+  artifactKey: Guid(1f1d5baae1d26404a8a639a07e5c7766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/SF UI/SF Generic.psd using Guid(1f1d5baae1d26404a8a639a07e5c7766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e90b054c5c098b60fe23de2456fe317') in 0.445381 seconds 
+  Import took 0.449922 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.016146 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in 13.434 seconds
+Domain Reload Profiling:
+	ReloadAssembly (13492ms)
+		BeginReloadAssembly (4612ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (208ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (7ms)
+			CreateAndSetChildDomain (2984ms)
+		EndReloadAssembly (7467ms)
+			LoadAssemblies (2223ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (626ms)
+			ReleaseScriptCaches (12ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (4257ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (45ms)
+				SetLoadedEditorAssemblies (3ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (948ms)
+				ProcessInitializeOnLoadAttributes (3224ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (74ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1442 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 174.3 MB.
+System memory in use after: 174.4 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1915.
+Total: 22.681833 ms (FindLiveObjects: 2.490500 ms CreateObjectMapping: 0.086500 ms MarkObjects: 19.911250 ms  DeleteObjects: 0.190958 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 286.922705 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/SF UI/Background
+  artifactKey: Guid(996ead54ac1e14316a77660d88da206d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/SF UI/Background using Guid(996ead54ac1e14316a77660d88da206d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bd10251aea11bb20bdb344b5d6ae497') in 0.146347 seconds 
+  Import took 0.300189 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.258799 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/SF UI/Background/SF Background.png
+  artifactKey: Guid(39939fe0b3df2b741aca15c2accaf90a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/SF UI/Background/SF Background.png using Guid(39939fe0b3df2b741aca15c2accaf90a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5899a130e3423730fb514387ea5b808') in 1.006976 seconds 
+  Import took 1.012074 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003922 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/SF UI/Background/SF Background.png
+  artifactKey: Guid(39939fe0b3df2b741aca15c2accaf90a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/SF UI/Background/SF Background.png using Guid(39939fe0b3df2b741aca15c2accaf90a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5899a130e3423730fb514387ea5b808') in 0.032437 seconds 
+  Import took 0.036822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 373.307739 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5633dd83da0356547deb6112c772b2a') in 0.297434 seconds 
+  Import took 0.449276 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 491.857595 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa18d954cf23e65e2aaabf4a65b24518') in 0.126360 seconds 
+  Import took 0.276069 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 62.689784 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83c92a38761ec30f8b538cc1c16c0805') in 0.040135 seconds 
+  Import took 0.045224 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 53.261475 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bcdaeeb9b17ad0c64a0db5fcf56f83c') in 0.020784 seconds 
+  Import took 0.024607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.831543 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73ab82a5e452d1b921f05f35049afd20') in 0.017389 seconds 
+  Import took 0.022505 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.567858 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d8f40eb0f137abb4d01d563b080b5fc') in 0.032655 seconds 
+  Import took 0.045291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.990476 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84ca38e7c1f453852edca115f402bf67') in 0.032544 seconds 
+  Import took 0.040592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 244.790794 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccbeec04d1db65e5fa478834424c8781') in 0.075452 seconds 
+  Import took 0.120756 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.309261 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png
+  artifactKey: Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIPanel.png using Guid(935962ddb1e44499dad00e5ca6b38823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff35d99ff90a41c9d40fd4811997dec9') in 0.033226 seconds 
+  Import took 0.036002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 146.510942 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIButtonDefault.png
+  artifactKey: Guid(967c7b47090d34cf090c40749e45f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIButtonDefault.png using Guid(967c7b47090d34cf090c40749e45f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5328d220847be3eb944438ebc0155c0') in 0.083930 seconds 
+  Import took 0.114126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 139.810836 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIButtonDefault.png
+  artifactKey: Guid(967c7b47090d34cf090c40749e45f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIButtonDefault.png using Guid(967c7b47090d34cf090c40749e45f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99b4c0f538a4825194a7b2ff83464634') in 0.082867 seconds 
+  Import took 0.121703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.015807 seconds.
+  path: Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIButtonDefault.png
+  artifactKey: Guid(967c7b47090d34cf090c40749e45f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity UI Samples/Textures and Sprites/Rounded UI/UIButtonDefault.png using Guid(967c7b47090d34cf090c40749e45f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8df0d1d5fd82c2be7dd1100c438e7221') in 0.018529 seconds 
+  Import took 0.020771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 748.270908 seconds.
+  path: Assets/Resources/Prefabs/UI/Scene/UI_Inven_Item.prefab
+  artifactKey: Guid(f45a3cf5504a5479b82a6585649a777c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/UI/Scene/UI_Inven_Item.prefab using Guid(f45a3cf5504a5479b82a6585649a777c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85898c4aa7a9b5003903cbe621f46126') in 0.683717 seconds 
+  Import took 0.770364 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 684.646467 seconds.
+  path: Assets/Resources/Prefabs/UI/Scene/UI_Inven_Item.prefab
+  artifactKey: Guid(f45a3cf5504a5479b82a6585649a777c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/UI/Scene/UI_Inven_Item.prefab using Guid(f45a3cf5504a5479b82a6585649a777c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc25f63ce6c8cc5ec3c65b4948ffc1b6') in 0.175403 seconds 
+  Import took 0.253236 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 62.292679 seconds.
+  path: Assets/Resources/Prefabs/UI/Scene/Panel.prefab
+  artifactKey: Guid(dd368aaa2e3404472b8043d46209cfbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/UI/Scene/Panel.prefab using Guid(dd368aaa2e3404472b8043d46209cfbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6b91ac745d42ef44d53b06091b31151') in 0.138992 seconds 
+  Import took 0.162497 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 577.743203 seconds.
+  path: Assets/Resources/Prefabs/UI/Scene/UI_Inven_Item.prefab
+  artifactKey: Guid(f45a3cf5504a5479b82a6585649a777c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/UI/Scene/UI_Inven_Item.prefab using Guid(f45a3cf5504a5479b82a6585649a777c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd27f1ced140c2d1b4c5ec45f52f25442') in 0.130249 seconds 
+  Import took 0.193600 seconds .
+

@@ -36,8 +36,7 @@ public class PlayerController : MonoBehaviour
         //Managers.UI.ClosePopupUI(ui); // 호출하면 마지막으로 띄운 팝업 닫
 
         // 팝업 실험
-        
-        Managers.UI.ShowPopupUI<UI_Button>();
+        //Managers.UI.ShowPopupUI<UI_Button>();
 
 
     }
