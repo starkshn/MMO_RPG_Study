@@ -693,3 +693,11 @@ Received Import Request.
 Start importing Assets/Resources/Prefabs/UI/Scene/UI_Inven_Item.prefab using Guid(f45a3cf5504a5479b82a6585649a777c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd27f1ced140c2d1b4c5ec45f52f25442') in 0.130249 seconds 
   Import took 0.193600 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 1441.029541 seconds.
+  path: Assets/Resources/Prefabs/UI/Scene/UI_Inven.prefab
+  artifactKey: Guid(9e8752669747047a0b86f8f0822f40f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/UI/Scene/UI_Inven.prefab using Guid(9e8752669747047a0b86f8f0822f40f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c39ae5a47db9a75118c9c4ecd8f8630c') in 0.269001 seconds 
+  Import took 0.341500 seconds .
+
