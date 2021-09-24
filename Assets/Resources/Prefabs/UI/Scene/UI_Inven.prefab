@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 6911190494926458873}
   - component: {fileID: 3184445893865106665}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: GridPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Inven_Item (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8000016190820123927, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.3995056
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
 --- !u!224 &8846707702438759302 stripped
@@ -402,6 +406,10 @@ PrefabInstance:
     - target: {fileID: 8000016190814912573, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
       propertyPath: m_Name
       value: UI_Inven_Item (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000016190820123927, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.3995056
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
@@ -505,6 +513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Inven_Item
       objectReference: {fileID: 0}
+    - target: {fileID: 8000016190820123927, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.3995056
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
 --- !u!224 &2844848801352900206 stripped
@@ -606,6 +618,10 @@ PrefabInstance:
     - target: {fileID: 8000016190814912573, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
       propertyPath: m_Name
       value: UI_Inven_Item (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000016190820123927, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.3995056
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
@@ -709,6 +725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Inven_Item (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8000016190820123927, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.3995056
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
 --- !u!224 &1890750775064926496 stripped
@@ -810,6 +830,10 @@ PrefabInstance:
     - target: {fileID: 8000016190814912573, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
       propertyPath: m_Name
       value: UI_Inven_Item (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000016190820123927, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.3995056
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45a3cf5504a5479b82a6585649a777c, type: 3}
