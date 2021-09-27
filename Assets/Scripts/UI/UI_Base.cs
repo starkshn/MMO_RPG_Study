@@ -50,7 +50,7 @@ public abstract class UI_Base : MonoBehaviour
     {
         // 먼저 게임오브젝트를 받고, 어떠 콜백으로 받을 함수(연동할 함수), 어떤 아이한테 연결을 해줄?(OnDragHandler도 있지만 다른 애들도 있을 수 있기 때문에
 
-        //UI_EventHandler evt = go.GetComponent<UI_EventHandler>();// 일다고 가정을하면 안되기 때문에(자주 쓰이니까 UTILS에다가 옮기자)
+        //UI_EventHandler evt = go.GetComponent<UI_EventHandler>();// 있다고 가정을하면 안되기 때문에(자주 쓰이니까 UTILS에다가 옮기자)
         //if (evt == null)
         //    evt = go.AddComponent<UI_EventHandler>();
 

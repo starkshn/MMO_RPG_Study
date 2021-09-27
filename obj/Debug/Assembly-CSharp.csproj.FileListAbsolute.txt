@@ -1,0 +1,2 @@
+C:\Users\stark\Desktop\CSHARP\MMO_RPG_Study-main\MMO_RPG_Study\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\stark\Desktop\CSHARP\MMO_RPG_Study-main\MMO_RPG_Study\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

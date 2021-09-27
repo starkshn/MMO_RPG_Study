@@ -3,10 +3,12 @@
     "",
     "\\Assets",
     "\\Assets\\Scripts",
+    "\\Assets\\Scripts\\Controllers",
+    "\\Assets\\Scripts\\Managers",
     "\\Assets\\Scripts\\UI",
-    "\\Assets\\Scripts\\UI\\Popup",
-    "\\Assets\\Scripts\\UI\\Scene"
+    "\\Assets\\Scripts\\UI\\Scene",
+    "\\Assets\\Scripts\\Utils"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\UI\\Scene\\UI_Ineven_Item.cs",
+  "SelectedNode": "\\Assets\\Scripts\\UI\\Scene\\UI_Inven.cs",
   "PreviewInSolutionExplorer": false
 }
