@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
         //Managers.UI.ShowPopupUI<UI_Button>();
 
 
+        // UI_Inven Test
+        Managers.UI.ShowSceneUI<UI_Inven>();
+
     }
 
     // State 패턴은 상태를 정의하게된다.

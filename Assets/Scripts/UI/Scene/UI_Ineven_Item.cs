@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Ineven_Item : MonoBehaviour
+public class UI_Ineven_Item : UI_Base
 {
-    // Start is called before the first frame update
+    
+
+
     void Start()
     {
-        
+        init();
     }
 
-    // Update is called once per frame
+    public override void init()
+    {
+
+    }
+
+    
     void Update()
     {
         
