@@ -6,9 +6,11 @@
     "\\Assets\\Scripts\\Controllers",
     "\\Assets\\Scripts\\Managers",
     "\\Assets\\Scripts\\UI",
+    "\\Assets\\Scripts\\UI\\Popup",
     "\\Assets\\Scripts\\UI\\Scene",
+    "\\Assets\\Scripts\\UI\\SubItem",
     "\\Assets\\Scripts\\Utils"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\UI\\Scene\\UI_Inven.cs",
+  "SelectedNode": "\\Assets\\Scripts\\UI\\UI_Base.cs",
   "PreviewInSolutionExplorer": false
 }

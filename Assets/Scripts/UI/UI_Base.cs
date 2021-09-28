@@ -42,11 +42,14 @@ public abstract class UI_Base : MonoBehaviour
         return objects[idx] as T; 
     }
 
+    // GameObject를 가장 많이 만드는데 이부분 proteted Text처럼 만들어주자
+    protected GameObject GetObject(int idx) { return Get<GameObject>(idx); }
+
     protected Text GetText(int idx) { return Get<Text>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
     protected Image GetImage(int idx) { return Get<Image>(idx); }
 
-    public static void AddUIEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
+    public static void BindEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
     {
         // 먼저 게임오브젝트를 받고, 어떠 콜백으로 받을 함수(연동할 함수), 어떤 아이한테 연결을 해줄?(OnDragHandler도 있지만 다른 애들도 있을 수 있기 때문에
 

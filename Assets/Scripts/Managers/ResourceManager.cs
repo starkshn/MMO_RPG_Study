@@ -20,8 +20,13 @@ public class ResourceManager
             Debug.Log($"Fail to load prefab : {path}");
             return null;
         }
+        
+        GameObject go = UnityEngine.Object.Instantiate(prefab, parent);
+        int index = go.name.IndexOf("(Clone)");
+        if(index > 0)
+            go.name = go.name.Substring(0, index); // 0번에서 index 번까지 짜른다 
 
-        return UnityEngine.Object.Instantiate(prefab, parent);
+        return go;
     }
 
     public void Destroy(GameObject go)

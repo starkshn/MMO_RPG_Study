@@ -61,15 +61,15 @@ public class UI_Button : UI_Popup
         //Bind<Image>(typeof(Images));
 
 
-        ////GameObject go = GetImage((int)Images.ItemIcon).AddUIEvent(); // 이런식으로 하면 좋을거같은데 우리가 지금배운 문법으로는 이것이 구현이 안된다. => 그래서 Extension 문법 사용함
-        //GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        ////GameObject go = GetImage((int)Images.ItemIcon).BindEvent(); // 이런식으로 하면 좋을거같은데 우리가 지금배운 문법으로는 이것이 구현이 안된다. => 그래서 Extension 문법 사용함
+        //GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
         //// action으로 OnButtonClicked 넘겨준거임 
 
         //GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         //GameObject go2 = GetImage((int)Images.Weapon).gameObject;
 
-        //AddUIEvent(go, ((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
-        //AddUIEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+        //BindEvent(go, ((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+        //BindEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
 
 
         //UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
@@ -87,14 +87,14 @@ public class UI_Button : UI_Popup
         Bind<GameObject>(typeof(GameObjects));
         Bind<Image>(typeof(Images));
 
-        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
         // action으로 OnButtonClicked 넘겨준거임 
 
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         GameObject go2 = GetImage((int)Images.Weapon).gameObject;
 
-        AddUIEvent(go, ((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
-        AddUIEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+        BindEvent(go, ((PointerEventData data) => { go.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
+        BindEvent(go2, ((PointerEventData data) => { go2.gameObject.transform.position = data.position; }), Define.UIEvent.Drag);
     }
 
     //void Bind<T> (Type type) where T : UnityEngine.Object // enum을 넘겨주면은 (Buttons같은애들을 넘겨주면) 안에있는애들을 이름을 모두 찾아서 이름이 곂치는 애들이 있으 찾아서 알아서 자장하게끔 만들어 줄 것이다.
