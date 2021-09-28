@@ -11,6 +11,6 @@
     "\\Assets\\Scripts\\UI\\SubItem",
     "\\Assets\\Scripts\\Utils"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\UI\\UI_Base.cs",
+  "SelectedNode": "\\Assets\\Scripts\\Managers\\UIManager.cs",
   "PreviewInSolutionExplorer": false
 }
