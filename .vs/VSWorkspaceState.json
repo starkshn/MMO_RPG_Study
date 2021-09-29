@@ -3,14 +3,8 @@
     "",
     "\\Assets",
     "\\Assets\\Scripts",
-    "\\Assets\\Scripts\\Managers",
-    "\\Assets\\Scripts\\Scenes",
-    "\\Assets\\Scripts\\UI",
-    "\\Assets\\Scripts\\UI\\Popup",
-    "\\Assets\\Scripts\\UI\\Scene",
-    "\\Assets\\Scripts\\UI\\SubItem",
-    "\\Assets\\Scripts\\Utils"
+    "\\Assets\\Scripts\\Scenes"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\Scenes\\BaseScene.cs",
+  "SelectedNode": "\\Assets\\Scripts\\Scenes\\GameScene.cs",
   "PreviewInSolutionExplorer": false
 }

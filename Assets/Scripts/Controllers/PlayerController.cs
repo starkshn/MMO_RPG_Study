@@ -39,8 +39,7 @@ public class PlayerController : MonoBehaviour
         //Managers.UI.ShowPopupUI<UI_Button>();
 
 
-        // UI_Inven Test
-        Managers.UI.ShowSceneUI<UI_Inven>();
+        
 
     }
 
