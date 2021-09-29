@@ -2158,6 +2158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnityChan
       objectReference: {fileID: 0}
+    - target: {fileID: 2056487333753321254, guid: 4f5d1d372d35f49c0887e3810e63d3b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2056487333756435302, guid: 4f5d1d372d35f49c0887e3810e63d3b7, type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
       value: 7
