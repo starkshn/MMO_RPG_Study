@@ -7,7 +7,7 @@ public class GameScene : BaseScene
 
     public override void Clear()
     {
-        init();
+        
     }
 
     protected override void init()
@@ -17,12 +17,15 @@ public class GameScene : BaseScene
         SceneType = Define.Scene.Game;
 
         Managers.UI.ShowSceneUI<UI_Inven>();
+
+        
+
     }
 
     void Start()
     {
-        
 
+        init();
     }
 
     

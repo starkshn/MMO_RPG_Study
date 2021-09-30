@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseScene : MonoBehaviour
 {
     // 모든 씬에대한 최상위 부모이다.
-    // Define.Scene _sceneType = Define.Scene.Unknown 밑에처럼 수정
+    
     public Define.Scene SceneType { get; protected set; } = Define.Scene.Unknown;
 
     void Start()
@@ -13,7 +13,6 @@ public abstract class BaseScene : MonoBehaviour
         
     }
 
-    
     protected virtual void init()
     {
 

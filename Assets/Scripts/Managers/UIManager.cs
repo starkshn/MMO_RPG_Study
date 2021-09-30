@@ -5,16 +5,16 @@ using UnityEngine;
 public class UIManager
 {
     int _order = 10; // 현재까지 최근에 사용한 ORDER를 저장.
-    UI_Scene _sceneUI = null; // showSceneUI 저장할곳;
+    UI_Scene _sceneUI = null; // showSceneUI 저장할곳
 
     public GameObject Root // 이렇게 property로 만들어주자
     {
         get
         {
             GameObject root = GameObject.Find("@UI_Root");
+
             if (root == null)
             {
-
                 root = new GameObject { name = "@UI_Root" };
             }
             return root;
@@ -65,8 +65,7 @@ public class UIManager
         GameObject go = Managers.Resource.Instantiate($"UI/Scene/{name}");
 
         T sceneUI = Util.GetOrComponent<T>(go);
-        _sceneUI = _sceneUI;
-
+        _sceneUI = sceneUI;
 
 
         go.transform.SetParent(Root.transform);

@@ -16,12 +16,12 @@ public class Managers : MonoBehaviour
 
 
     public static InputManager Input { get { return Instance._input;  } }
-    // InputManager 를 반환하는데 Input이라는 함수 이름으로.
+    
 
-    // ResourceManager
+   
     public static ResourceManager Resource {  get { return Instance._resource;  } }
 
-    // UIManager
+   
     public static UIManager UI { get { return Instance.ui; } }
     
     
