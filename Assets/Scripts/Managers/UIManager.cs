@@ -47,6 +47,7 @@ public class UIManager
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
 
+
          GameObject go = Managers.Resource.Instantiate($"UI/SubItem/{name}");
 
         if(parent != null)

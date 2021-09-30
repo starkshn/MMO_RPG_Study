@@ -15,7 +15,6 @@ public class InputManager
 
     public bool _pressed_space = false; // jump 키 
 
-
     public void OnUpdate()
     {
 

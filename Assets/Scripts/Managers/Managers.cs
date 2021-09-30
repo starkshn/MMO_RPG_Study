@@ -14,10 +14,7 @@ public class Managers : MonoBehaviour
     ResourceManager _resource = new ResourceManager();
     UIManager ui = new UIManager();
 
-
     public static InputManager Input { get { return Instance._input;  } }
-    
-
    
     public static ResourceManager Resource {  get { return Instance._resource;  } }
 

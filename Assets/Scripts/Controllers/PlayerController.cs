@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
         Managers.Input.KeyBoardAction -= OnKeyBoardPressed;
         Managers.Input.KeyBoardAction += OnKeyBoardPressed;
 
-        // 팝업 실험
-        //Managers.UI.ShowPopupUI<UI_Button>();
     }
 
    

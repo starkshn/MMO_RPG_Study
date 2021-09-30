@@ -9,7 +9,6 @@ public class UI_Inven_Item : UI_Base
     {
         ItemIcon, // 클릭을 한다면
         ItemNameText,
-
     }
 
     string _name;

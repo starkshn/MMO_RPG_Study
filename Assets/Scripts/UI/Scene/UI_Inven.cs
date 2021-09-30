@@ -30,6 +30,7 @@ public class UI_Inven : UI_Scene
         // 실제 인벤토리 정보를 참고해서 뭔가를 채워주는 부분 
         for (int i = 0; i < 8; i++)
         {
+            Debug.Log("Hi!");
             Managers.UI.MakeSubItem<UI_Inven_Item>();
 
             GameObject item = Managers.UI.MakeSubItem<UI_Inven_Item>(gridPanel.transform).gameObject; 
