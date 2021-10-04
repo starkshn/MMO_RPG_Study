@@ -12,14 +12,15 @@ public class Managers : MonoBehaviour
 
     InputManager _input = new InputManager();
     ResourceManager _resource = new ResourceManager();
-    UIManager ui = new UIManager();
+    SoundManager _sound = new SoundManager();
     SceneManagerEx _scene = new SceneManagerEx();
+    UIManager ui = new UIManager();
 
     public static InputManager Input { get { return Instance._input;  } }
    
     public static ResourceManager Resource {  get { return Instance._resource;  } }
     public static SceneManagerEx Scene { get { return Instance._scene; } } // SceneManager는 UI위에 위치하니까 여기다가 넣어주자
-
+    public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance.ui; } }
 
     
