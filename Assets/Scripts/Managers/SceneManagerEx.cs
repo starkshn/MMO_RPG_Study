@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerEx
 {
+
+    public BaseScene CurrenScene { get { return GameObject.FindObjectOfType<BaseScene>(); } } // property로 만든것.
+    // 이런식으로 BaseScene Component를 들고 있는 애를 찾아주세요이다.
+
     public void  LoadScene(Define.Scene type)
     {
-        //
+        CurrenScene.Clear(); // 현재 Scene을 찾아가지고 Clear로 날려준다음에 다음 씬으로 이동(SceneManager.LoadScene() 이부분.)
         SceneManager.LoadScene(GetSceneName(type));
         // LoadScene에 string을 넣어줬는데 Define은 Define값이지 string이 아니다. 그래서 Define.Scene을 string으로 받아주는 함수 만들자
     }

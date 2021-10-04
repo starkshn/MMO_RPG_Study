@@ -18,13 +18,14 @@ public class LoginScene : BaseScene
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            SceneManager.LoadScene("Game");
-            SceneManager.LoadSceneAsync
+            //SceneManager.LoadScene("Game"); 이 버전이 아니라 이전에 SceneMagerEx에 만든 버젼 사용할것이다.
+            Managers.Scene.LoadScene(Define.Scene.Game);
+            
         }
     }
 
     public override void Clear()
     {
-        
+        Debug.Log("Login Scene Clear!");
     }
 }
