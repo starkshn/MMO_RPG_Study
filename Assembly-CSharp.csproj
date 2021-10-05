@@ -64,7 +64,9 @@
     <Compile Include="Assets\Scripts\Utils\Define.cs" />
     <Compile Include="Assets\Scripts\Scenes\BaseScene.cs" />
     <Compile Include="Assets\Scripts\Managers\Managers.cs" />
+    <Compile Include="Assets\Scripts\TestSound.cs" />
     <Compile Include="Assets\Scripts\Utils\Util.cs" />
+    <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\SubItem\UI_Inven_Item.cs" />
@@ -73,8 +75,6 @@
     <Compile Include="Assets\Scripts\UI\UI_Base.cs" />
     <Compile Include="Assets\Scripts\UI\UI_EventHandler.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
-    <Compile Include="Assets\Scripts\TestSound.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_fuku.shader" />
@@ -84,7 +84,7 @@
     <None Include="Assets\Unity UI Samples\Textures and Sprites\SF UI\Background\LICENSE.txt" />
     <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_fuku_ds.shader" />
     <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_eyelash_blend.shader" />
-    <None Include="Assets\Resources\Art\UnityChan\Sounds\unity-chan_voice_list.txt" />
+    <None Include="Assets\Resources\Sounds\UnityChan\unity-chan_voice_list.txt" />
     <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_hada_blend.shader" />
     <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_eye.shader" />
     <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_hair.shader" />
