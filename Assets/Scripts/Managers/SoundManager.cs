@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager 
+public class SoundManager
 {
     // MP3 Player -> AudioSource
     // MP3 음원 -> AudioClip
@@ -10,6 +10,8 @@ public class SoundManager
 
     //AudioSource audioSource = new AudioSource(); 내가 선언한것
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; // 용도를 나누어서 만들어 놓자.
+
+
 
     public void Play(Define.Sound type, string path, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
     {
