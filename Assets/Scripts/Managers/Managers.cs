@@ -17,7 +17,6 @@ public class Managers : MonoBehaviour
     UIManager ui = new UIManager();
 
     public static InputManager Input { get { return Instance._input;  } }
-   
     public static ResourceManager Resource {  get { return Instance._resource;  } }
     public static SceneManagerEx Scene { get { return Instance._scene; } } // SceneManager는 UI위에 위치하니까 여기다가 넣어주자
     public static SoundManager Sound { get { return Instance._sound; } }
@@ -50,6 +49,11 @@ public class Managers : MonoBehaviour
 
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+
+            // 여기서 Instance 호출하면 안된다! 주의 해야함 왜냐하면 static Managers Instance { get { Init(); return s_instance; } }
+            // 에서 return으로 Init()을 호출하고있기때문에 무한루프에 빠질 수 있다.
+
+            s_instance._sound.init();
 
         }
     }
