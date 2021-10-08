@@ -12,7 +12,6 @@ public class SoundManager
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; // 용도를 나누어서 만들어 놓자.
 
 
-
     public void Play(Define.Sound type, string path, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
     {
         if (path.Contains("Sounds/") == false)
@@ -43,7 +42,7 @@ public class SoundManager
                 return;
             }
 
-            AudioSource audioSource = _audioSources[(int)Define.Sound.Effect]; // Effect같은 경우에는 PlayOneshot으로 사용 할지를 아니까 source에 담아놓자.
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Effect]; // Effect같은 경우에는 PlayOneshot으로 사용 할지를 아니까 audioSource에 담아놓자.
             audioSource.pitch = pitch;
             
             audioSource.PlayOneShot(audioClip); // Clip 같은 경우는 위에서 찾아준 clip을 넣어놓자
