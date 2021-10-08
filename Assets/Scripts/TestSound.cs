@@ -13,7 +13,10 @@ public class TestSound : MonoBehaviour
     
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Managers.Sound.Play(Define.Sound.Jump, "UnityChan/univ0003");
+        }
     }
 
     public AudioClip audioClip; // 여기에 audioclip2번에 넣어진 상태이다. -> 유니티에서 드래그드롭으로 작업함.
@@ -28,7 +31,9 @@ public class TestSound : MonoBehaviour
         //GameObject.Destroy(gameObject, lifeTime
 
         Managers.Sound.Play(Define.Sound.Effect, "UnityChan/univ0001"); // 두번째 인자에 audioClip을 넣는것이 아니라 이제는 경로를 넣어준다.
-        Managers.Sound.Play(Define.Sound.Effect, "UnityChan/univ0002"); 
-
+        Managers.Sound.Play(Define.Sound.Effect, "UnityChan/univ0002");
+        
     }
+
+    
 }

@@ -17,6 +17,7 @@ public class Define
     {
         Bgm,
         Effect,
+        Jump,
         MaxCount,
         // MaxCount는 Sound enum갯수를 세기위해서 그냥 추가한것
 

@@ -54,7 +54,7 @@ public class SoundManager
                 // 찾은 경우니까 audioClip을 재생시켜주면 된다.
             }
         }
-        else
+        else if(type == Define.Sound.Effect)
         {
             AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
             if (audioClip == null)
@@ -68,6 +68,22 @@ public class SoundManager
             
             audioSource.PlayOneShot(audioClip); // Clip 같은 경우는 위에서 찾아준 clip을 넣어놓자
 
+        }
+
+        else
+        {
+            AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
+            if (audioClip == null)
+            {
+                Debug.Log($"AudioClip Missing ! {path}");
+                return;
+            }
+
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Jump];
+
+            audioSource.pitch = pitch;
+
+            audioSource.PlayOneShot(audioClip);
         }
         // 혹시라도 사운드 타입이 추가가 된다면 여기 if문에서 잘 처리를 하면될 것이다.
     }
