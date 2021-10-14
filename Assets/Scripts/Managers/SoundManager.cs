@@ -11,6 +11,9 @@ public class SoundManager
     //AudioSource audioSource = new AudioSource(); 내가 선언한것
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; // 용도를 나누어서 만들어 놓자.
 
+    // 캐싱 역할을 할 _audioClips 딕션어리 
+    Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
+
     public void init()
     {
         GameObject root = GameObject.Find("@Sound");
@@ -31,6 +34,16 @@ public class SoundManager
 
             _audioSources[(int)Define.Sound.Bgm].loop = true; // Bgm같은 경우에는 루프로 계속 사운드가 나도록 해준다.
         }
+    }
+    
+    public void Clear()
+    {
+        foreach(AudioSource audioSource in _audioSources)
+        {
+            audioSource.clip = null;
+            audioSource.Stop();
+        }
+        _audioClips.Clear();
     }
 
     public void Play(string path, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
@@ -81,7 +94,7 @@ public class SoundManager
         // 점프하는 사운드 구현
         else
         {
-            AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
+            AudioClip audioClip = GetOrAddAudioClip(path);
             if (audioClip == null)
             {
                 Debug.Log($"AudioClip Missing ! {path}");
@@ -96,4 +109,18 @@ public class SoundManager
         }
         // 혹시라도 사운드 타입이 추가가 된다면 여기 if문에서 잘 처리를 하면될 것이다.
     }
+
+    AudioClip GetOrAddAudioClip(string path)
+    {
+        AudioClip audioClip = null;
+        if (_audioClips.TryGetValue(path, out audioClip) == false) // 있으면 이렇게 값을 뱉어주고 
+        {
+            // 없다면 이전과 마찬가지로
+            audioClip = Managers.Resource.Load<AudioClip>(path);
+            _audioClips.Add(path, audioClip);
+        }
+
+        return audioClip;
+    }
+
 }
