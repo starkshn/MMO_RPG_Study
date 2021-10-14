@@ -33,11 +33,13 @@ public class SoundManager
         }
     }
 
-    public void Play(Define.Sound type, string path, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
+    public void Play(string path, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
     {
         if (path.Contains("Sounds/") == false)
+        {
             path = $"Sounds/{path}";
         // 이렇게 하면 UnityChan/사운드 몇몇번 이런식으로 path넣는다.
+        }
 
         if(type == Define.Sound.Bgm)
         {
@@ -48,12 +50,18 @@ public class SoundManager
                 return;
             }
 
-            // ToDo
-            else
-            {
-                // 찾은 경우니까 audioClip을 재생시켜주면 된다.
-            }
+            // ToDo (bgm 처리부분)
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+
+            audioSource.pitch = pitch;
+            audioSource.clip = audioClip;
+            audioSource.Play();
+
+            
         }
+
         else if(type == Define.Sound.Effect)
         {
             AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
@@ -65,11 +73,12 @@ public class SoundManager
 
             AudioSource audioSource = _audioSources[(int)Define.Sound.Effect]; // Effect같은 경우에는 PlayOneshot으로 사용 할지를 아니까 audioSource에 담아놓자.
             audioSource.pitch = pitch;
-            
+       
             audioSource.PlayOneShot(audioClip); // Clip 같은 경우는 위에서 찾아준 clip을 넣어놓자
 
         }
 
+        // 점프하는 사운드 구현
         else
         {
             AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
