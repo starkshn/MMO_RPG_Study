@@ -122,7 +122,13 @@ public class UIManager
 
     public void CloseAllPopupUI()
     {
-        //while (_popupStack.Count > 0)
-        //    ClosePopupUI();
+        while (_popupStack.Count > 0)
+            CloseAllPopupUI();
+    }
+
+    public void Clear()
+    {
+        CloseAllPopupUI();
+        _sceneUI = null;
     }
 }
