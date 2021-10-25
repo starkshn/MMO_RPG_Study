@@ -21,6 +21,7 @@ public class TestSound : MonoBehaviour
 
     public AudioClip audioClip; // 여기에 audioclip2번에 넣어진 상태이다. -> 유니티에서 드래그드롭으로 작업함.
     public AudioClip audioClip2;
+    public AudioClip audioClip3;
 
     int i = 0;
     private void OnTriggerEnter(Collider other)
@@ -33,7 +34,7 @@ public class TestSound : MonoBehaviour
 
         i++;
 
-        if(i % 2 == 0)
+        if (i % 2== 0)
         {
             Managers.Sound.Play("UnityChan/univ0001", Define.Sound.Bgm); // 두번째 인자에 audioClip을 넣는것이 아니라 이제는 경로를 넣어준다.
         }
@@ -41,6 +42,11 @@ public class TestSound : MonoBehaviour
         {
             Managers.Sound.Play("UnityChan/univ0002", Define.Sound.Bgm);
         }
+
+        //else if(i == 2)
+        //{
+        //    Managers.Sound.Play("UnityChan/univ0012", Define.Sound.Bgm);
+        //}
         
     }
 

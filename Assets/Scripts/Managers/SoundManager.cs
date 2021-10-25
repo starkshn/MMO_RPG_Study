@@ -10,6 +10,7 @@ public class SoundManager
 
     //AudioSource audioSource = new AudioSource(); 내가 선언한것
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; // 용도를 나누어서 만들어 놓자.
+    
 
     // 캐싱 역할을 할 _audioClips 딕션어리 
     Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
@@ -33,6 +34,17 @@ public class SoundManager
             // soundName을 돌면서 새로운 GameObject를 만들어준다.
 
             _audioSources[(int)Define.Sound.Bgm].loop = true; // Bgm같은 경우에는 루프로 계속 사운드가 나도록 해준다.
+        }
+
+        GameObject cube = GameObject.Find("Cube");
+        
+        if(cube == null)
+        {
+            cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.position = new Vector3(0, 1, 3);
+            cube.transform.name = "MyCube";
+            cube.AddComponent<AudioSource>();
+            
         }
     }
     
@@ -110,7 +122,13 @@ public class SoundManager
         // 혹시라도 사운드 타입이 추가가 된다면 여기 if문에서 잘 처리를 하면될 것이다.
     }
 
-    AudioClip GetOrAddAudioClip(string path)
+    // PlayMyCube함수에는 오디오 클립만 전달을 해준다음 Mycube에 갖다 붙여 넣을 꺼임
+    public void PlayMyCube(string path)
+    {
+
+    }
+
+    AudioClip GetOrAddAudioClip(string path) // audioClip 반환하는 함수(위에 Dictionary만든 부분에서)
     {
         AudioClip audioClip = null;
         if (_audioClips.TryGetValue(path, out audioClip) == false) // 있으면 이렇게 값을 뱉어주고 
