@@ -44,7 +44,8 @@ public class SoundManager
             cube.transform.position = new Vector3(0, 1, 3);
             cube.transform.name = "MyCube";
             cube.AddComponent<AudioSource>();
-            
+
+
         }
     }
     
@@ -83,8 +84,6 @@ public class SoundManager
             audioSource.pitch = pitch;
             audioSource.clip = audioClip;
             audioSource.Play();
-
-            
         }
 
         else if(type == Define.Sound.Effect)
@@ -103,28 +102,62 @@ public class SoundManager
 
         }
 
-        // 점프하는 사운드 구현
-        else
-        {
-            AudioClip audioClip = GetOrAddAudioClip(path);
-            if (audioClip == null)
-            {
-                Debug.Log($"AudioClip Missing ! {path}");
-                return;
-            }
+    }
 
-            AudioSource audioSource = _audioSources[(int)Define.Sound.Jump];
+    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
+    {
+        if (audioClip == null)
+        {
+            return;
+        }
+
+        if (type == Define.Sound.Bgm)
+        {
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+            if (audioSource.isPlaying)
+                audioSource.Stop();
 
             audioSource.pitch = pitch;
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        }
 
+        else // (type == Define.Sound.Effect)
+        {
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+            audioSource.pitch = pitch;
+            audioSource.clip = audioClip;
             audioSource.PlayOneShot(audioClip);
         }
-        // 혹시라도 사운드 타입이 추가가 된다면 여기 if문에서 잘 처리를 하면될 것이다.
     }
 
     // PlayMyCube함수에는 오디오 클립만 전달을 해준다음 Mycube에 갖다 붙여 넣을 꺼임
-    public void PlayMyCube(string path)
+    public void PlayMyCube(string clipPath)
     {
+        GameObject cube = GameObject.Find("MyCube");
+       
+        if (clipPath.Contains("Sounds/") == false)
+        {
+            clipPath = $"Sounds/{clipPath}";
+        }
+
+        
+
+        AudioClip myCubeClip  = Managers.Resource.Load<AudioClip>(clipPath); // 인자로 전달받은 Clip저장 여기에 Clip이 있슴.
+        if(myCubeClip == null)
+        {
+            Debug.Log($"MyCubeClip is Miissing! {clipPath}");
+            return;
+        }
+        else
+        {
+           AudioSource cubeAudioSource = cube.GetComponent<AudioSource>();
+            cubeAudioSource.maxDistance = 30.0f;
+            cubeAudioSource.minDistance = 1.0f;
+            cubeAudioSource.spatialBlend = 1.0f;
+
+        }
+
 
     }
 

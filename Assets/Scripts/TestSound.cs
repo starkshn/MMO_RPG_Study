@@ -27,6 +27,7 @@ public class TestSound : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //AudioSource audio = GetComponent<AudioSource>();
+        //audio.PlayClipAtPoint()
         //audio.PlayOneShot(audioClip);
         //audio.PlayOneShot(audioClip2);
         //float lifeTime = Mathf.Max(audioClip.length, audioClip2.length);
@@ -42,7 +43,7 @@ public class TestSound : MonoBehaviour
         {
             Managers.Sound.Play("UnityChan/univ0002", Define.Sound.Bgm);
         }
-
+        
         //else if(i == 2)
         //{
         //    Managers.Sound.Play("UnityChan/univ0012", Define.Sound.Bgm);
