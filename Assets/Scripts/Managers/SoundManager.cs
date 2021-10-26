@@ -61,47 +61,8 @@ public class SoundManager
 
     public void Play(string path, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
     {
-        if (path.Contains("Sounds/") == false)
-        {
-            path = $"Sounds/{path}";
-        // 이렇게 하면 UnityChan/사운드 몇몇번 이런식으로 path넣는다.
-        }
-
-        if(type == Define.Sound.Bgm)
-        {
-            AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
-            if(audioClip == null)
-            {
-                Debug.Log($"AudioClip Missing ! {path}");
-                return;
-            }
-
-            // ToDo (bgm 처리부분)
-            AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
-            if (audioSource.isPlaying)
-                audioSource.Stop();
-
-            audioSource.pitch = pitch;
-            audioSource.clip = audioClip;
-            audioSource.Play();
-        }
-
-        else if(type == Define.Sound.Effect)
-        {
-            AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
-            if (audioClip == null)
-            {
-                Debug.Log($"AudioClip Missing ! {path}");
-                return;
-            }
-
-            AudioSource audioSource = _audioSources[(int)Define.Sound.Effect]; // Effect같은 경우에는 PlayOneshot으로 사용 할지를 아니까 audioSource에 담아놓자.
-            audioSource.pitch = pitch;
-       
-            audioSource.PlayOneShot(audioClip); // Clip 같은 경우는 위에서 찾아준 clip을 넣어놓자
-
-        }
-
+        AudioClip audioclip = GetOrAddAudioClip(path, type);
+        Play(audioclip, type, pitch);
     }
 
     public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f) // path로 경로를 받아주고 pitch = 소리 속도 조절
@@ -124,51 +85,39 @@ public class SoundManager
 
         else // (type == Define.Sound.Effect)
         {
-            AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
             audioSource.pitch = pitch;
             audioSource.clip = audioClip;
             audioSource.PlayOneShot(audioClip);
         }
     }
 
-    // PlayMyCube함수에는 오디오 클립만 전달을 해준다음 Mycube에 갖다 붙여 넣을 꺼임
-    public void PlayMyCube(string clipPath)
+    
+    AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect) // audioClip 반환하는 함수(위에 Dictionary만든 부분에서)
     {
-        GameObject cube = GameObject.Find("MyCube");
-       
-        if (clipPath.Contains("Sounds/") == false)
+        if (path.Contains("Sounds/") == false)
         {
-            clipPath = $"Sounds/{clipPath}";
+            path = $"Sounds/{path}";
         }
 
-        
+        AudioClip audioClip = null;
 
-        AudioClip myCubeClip  = Managers.Resource.Load<AudioClip>(clipPath); // 인자로 전달받은 Clip저장 여기에 Clip이 있슴.
-        if(myCubeClip == null)
+        if (type == Define.Sound.Bgm)
         {
-            Debug.Log($"MyCubeClip is Miissing! {clipPath}");
-            return;
+            audioClip = Managers.Resource.Load<AudioClip>(path);
         }
         else
         {
-           AudioSource cubeAudioSource = cube.GetComponent<AudioSource>();
-            cubeAudioSource.maxDistance = 30.0f;
-            cubeAudioSource.minDistance = 1.0f;
-            cubeAudioSource.spatialBlend = 1.0f;
-
+            if (_audioClips.TryGetValue(path, out audioClip) == false) // 있으면 이렇게 값을 뱉어주고 
+            {
+                audioClip = Managers.Resource.Load<AudioClip>(path);
+                _audioClips.Add(path, audioClip);
+            }
         }
 
-
-    }
-
-    AudioClip GetOrAddAudioClip(string path) // audioClip 반환하는 함수(위에 Dictionary만든 부분에서)
-    {
-        AudioClip audioClip = null;
-        if (_audioClips.TryGetValue(path, out audioClip) == false) // 있으면 이렇게 값을 뱉어주고 
+        if (audioClip == null)
         {
-            // 없다면 이전과 마찬가지로
-            audioClip = Managers.Resource.Load<AudioClip>(path);
-            _audioClips.Add(path, audioClip);
+            Debug.Log($"AudioClip Missing ! {path}");
         }
 
         return audioClip;
