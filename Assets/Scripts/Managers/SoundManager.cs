@@ -36,17 +36,6 @@ public class SoundManager
             _audioSources[(int)Define.Sound.Bgm].loop = true; // Bgm같은 경우에는 루프로 계속 사운드가 나도록 해준다.
         }
 
-        GameObject cube = GameObject.Find("Cube");
-        
-        if(cube == null)
-        {
-            cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.transform.position = new Vector3(0, 1, 3);
-            cube.transform.name = "MyCube";
-            cube.AddComponent<AudioSource>();
-
-
-        }
     }
     
     public void Clear()

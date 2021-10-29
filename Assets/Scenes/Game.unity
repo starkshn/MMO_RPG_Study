@@ -2404,6 +2404,8 @@ GameObject:
   - component: {fileID: 1849450891}
   - component: {fileID: 1849450890}
   - component: {fileID: 1849450889}
+  - component: {fileID: 1849450894}
+  - component: {fileID: 1849450895}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2583,6 +2585,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849450894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849450888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486ec0f8765cf6148a50dda3da8fd191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip1: {fileID: 8300000, guid: 9386c5176a28d485f9f58d1031791d32, type: 3}
+--- !u!54 &1849450895
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849450888}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1945570409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,10 +2723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac5fb87a8cec4f4fae484efc8aec8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 6ccbc3d284bd849d49fb1f8f94ab2888, type: 3}
-  audioClip2: {fileID: 8300000, guid: d42eccd24e0ee4aef80df9398ec0747c, type: 3}
-  audioClip3: {fileID: 0}
-  i: 0
 --- !u!54 &1945570416
 Rigidbody:
   m_ObjectHideFlags: 0

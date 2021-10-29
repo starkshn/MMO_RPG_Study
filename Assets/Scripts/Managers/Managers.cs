@@ -22,8 +22,6 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance.ui; } }
 
-    
-    
     void Start()
     {
         Init();
