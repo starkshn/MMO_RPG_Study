@@ -22,7 +22,6 @@ public class ResourceManager
             return null;
         }
         
-
         // 2. 혹시 풀링된 애가 있을까? 
         GameObject go = UnityEngine.Object.Instantiate(prefab, parent);
         //int index = go.name.IndexOf("(Clone)");
@@ -38,6 +37,8 @@ public class ResourceManager
     {
         if (go == null)
             return;
+
+        // 3. 필요없다고 바로 없애는것이 아니라(풀링이 필요한 아이라면) -> 풀링매니저한테 위탁을 해준다.
         UnityEngine.Object.Destroy(go);
     }
 }
