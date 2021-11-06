@@ -21,15 +21,16 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
-    
+
     void LateUpdate() // LateUpdate로 한 이유 생각!
     {
         if(_mode == Define.CameraMode.QuarterView)
         {
             RaycastHit hit;
+
             if(Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
             {
                 // if true라는 것은 벽을 만났다는 말이니까

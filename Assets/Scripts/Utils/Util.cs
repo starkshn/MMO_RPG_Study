@@ -5,7 +5,7 @@ using UnityEngine;
 public class Util
 {
     // UI_Base 에서 Getcompnent하느느 부분가져옴 자주 쓰이기 때문에
-    public static T GetOrComponent<T>(GameObject go) where T : UnityEngine.Component
+    public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
         T component = go.GetComponent<T>();
         if (component == null)
@@ -13,8 +13,6 @@ public class Util
 
         return component;
     }
-
-
 
     // GameObject 전용 FIndChild 함수 만들어주자( 인터페이스는 비슷하니까 복붙하자 일단) 
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false) // Generic 형식이 아니기 때문에 where T 삭제, 근데 모든 GameObject는 TRansform 컴포넌트를 가지고 있다. 그래서 컴포넌트 FindChild<T>를 호출해서 Trnasform으로 받는다.

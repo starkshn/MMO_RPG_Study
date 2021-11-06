@@ -33,16 +33,20 @@ public class ResourceManager
             Debug.Log($"Fail to load prefab : {path}");
             return null;
         }
-
+        
         // 2. 혹시 풀링된 애가 있을까? 
         if (original.GetComponent<Poolable>() != null) // 없다면 무시하고 원래대로 돌아가면 될것이다.
             return Managers.Pool.Pop(original, parent).gameObject;
 
         GameObject go = UnityEngine.Object.Instantiate(original, parent);
-        //GameObject go = Object.Instantiate(original, parent); 이렇게하는거랑 UnityEngine.Object.Instantiate(original, parent); 이거랑 같다.
 
+        //int index = go.name.IndexOf("(Clone)");
+        //if (index > 0)
+        //    go.name = go.name.Substring(0, index);
+        // 위에 3줄이랑 go.name = original.name;이랑 같은것이다.
+
+        //GameObject go = Object.Instantiate(original, parent); 이렇게하는거랑 UnityEngine.Object.Instantiate(original, parent); 이거랑 같다
         go.name = original.name;
-
         return go;
     }
 

@@ -8,7 +8,7 @@ public class Managers : MonoBehaviour
     static Managers s_instance; // 유일성 보장된다
 
     // 외부에서 얘를 사용하고싶을때는
-    static Managers Instance { get { Init(); return s_instance; } } // 유일한 매니저를 갖고온다 
+    static Managers Instance { get { init(); return s_instance; } } // 유일한 매니저를 갖고온다 
 
     InputManager _input = new InputManager();
     PoolManager _pool = new PoolManager();
@@ -26,7 +26,7 @@ public class Managers : MonoBehaviour
 
     void Start()
     {
-        Init();
+        init();
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class Managers : MonoBehaviour
         _input.OnUpdate();
     }
 
-    static void Init() 
+    static void init() 
     {
         if (s_instance == null) 
         {

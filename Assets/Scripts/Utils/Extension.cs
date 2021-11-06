@@ -18,9 +18,9 @@ public static class Extension
         UI_Base.BindEvent(go, action, type);
     }
 
-    public static T GetOrComponent<T>(this GameObject go) where T : UnityEngine.Component
+    public static T GetOrAddComponent<T>(this GameObject go) where T : UnityEngine.Component
     {
-       return Util.GetOrComponent<T>(go);
+       return Util.GetOrAddComponent<T>(go);
     }
 
 
