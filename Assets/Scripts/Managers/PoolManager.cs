@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PoolManager
 {
+    #region Pool
     class Pool
     {
         public GameObject Original { get; private set; }
@@ -39,6 +40,7 @@ public class PoolManager
                 // 없다면 바로 끝낸다.
             }
             poolable.transform.parent = Root;
+
             // 영상 꺼놓는 부분
             poolable.gameObject.SetActive(false);
             poolable.isUsing = false;
@@ -47,7 +49,25 @@ public class PoolManager
             _poolStack.Push(poolable);
             
         }
+
+        public Poolable Pop(Transform parent)
+        {
+            Poolable poolable;
+
+            if (_poolStack.Count > 0)
+                poolable = _poolStack.Pop();
+            else
+                poolable = Create();
+
+            poolable.gameObject.SetActive(true);
+            poolable.transform.parent = parent;
+            poolable.isUsing = true;
+
+            return poolable;
+
+        }
     }
+    #endregion
 
     Dictionary<string, Pool> _pool = new Dictionary<string, Pool>();
 
@@ -71,7 +91,7 @@ public class PoolManager
     public Poolable Pop(GameObject original, Transform parent = null)
     {
 
-        return null;
+        return _pool[original.name].Pop(parent);
     }
 
     public GameObject GetOriginal(string name)
