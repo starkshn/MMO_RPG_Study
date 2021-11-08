@@ -73,7 +73,6 @@ public class PoolManager
 
     Transform _root;
 
-
     public void init()
     {
         if(_root == null)
@@ -83,19 +82,54 @@ public class PoolManager
         }
     }
 
+    public void CreatePool(GameObject original, int count = 5)
+    {
+        Pool pool = new Pool(); // 새로운 class생성
+        pool.init(original, count);
+        pool.Root.parent = _root;
+        // 현재 _root가 Transform 이니까 pool.Root.parent = _root.trnasform이랑 같은 말이다.
+
+        _pool.Add(original.name, pool);
+    }
+
     public void Push(Poolable poolable)
     {
+        string name = poolable.gameObject.name;
 
+        if(_pool.ContainsKey(name) == false)
+        {
+            GameObject.Destroy(poolable.gameObject);
+            return;
+        }
+
+        _pool[name].Push(poolable);
     }
 
     public Poolable Pop(GameObject original, Transform parent = null)
     {
+        if (_pool.ContainsKey(original.name) == false)
+        {
+            CreatePool(original);
+        }
 
         return _pool[original.name].Pop(parent);
     }
 
     public GameObject GetOriginal(string name)
     {
-        return null;
+        if (_pool.ContainsKey(name) == false)
+        {
+            return null;
+        }
+            
+        return _pool[name].Original;
+    }
+
+    public void Clear()
+    {
+        foreach (Transform child in _root)
+            GameObject.Destroy(child.gameObject);
+
+        _pool.Clear();
     }
 }

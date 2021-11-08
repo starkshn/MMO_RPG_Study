@@ -16,17 +16,18 @@ public class ResourceManager
             if (index >= 0)
                 name = name.Substring(index + 1);
 
-
             GameObject go = Managers.Pool.GetOriginal(name);
             if (go != null)
                 return go as T;
 
         }
+
         return Resources.Load<T>(path);
     }
 
     public GameObject Instantiate(string path, Transform parent = null)
     {
+        // 1. original 이미 들고있으면 바로 사용
         GameObject original = Load<GameObject>($"Prefabs/{path}");
         if (original == null)
         {
