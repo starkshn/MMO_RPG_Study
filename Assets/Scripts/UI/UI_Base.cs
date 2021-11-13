@@ -58,7 +58,7 @@ public abstract class UI_Base : MonoBehaviour
         //if (evt == null)
         //    evt = go.AddComponent<UI_EventHandler>();
 
-        UI_EventHandler evt = Util.GetOrComponent<UI_EventHandler>(go); // 이렇게 컴포넌ㅌ, 추가했으니 type에 따라서 연동을 키져주자
+        UI_EventHandler evt = Util.GetOrAddComponent<UI_EventHandler>(go); // 이렇게 컴포넌ㅌ, 추가했으니 type에 따라서 연동을 키져주자
         switch(type)
         {
             case Define.UIEvent.Click:

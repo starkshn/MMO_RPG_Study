@@ -80,7 +80,7 @@ public class PoolManager
             _root = new GameObject { name = "@Pool_Root" }.transform;
             Object.DontDestroyOnLoad(_root);
         }
-    }
+    } 
 
     public void CreatePool(GameObject original, int count = 5)
     {

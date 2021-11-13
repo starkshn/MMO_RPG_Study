@@ -55,8 +55,7 @@ public class Managers : MonoBehaviour
 
             s_instance._sound.init();
 
-            s_instance._pool.init();
-            // pool에 init하는 부분이 있었으니까 챙겨주자
+            s_instance._pool.init(); // pool에 init하는 부분이 있었으니까 챙겨주자
 
         }
     }
@@ -68,6 +67,6 @@ public class Managers : MonoBehaviour
         Scene.Clear();
         UI.Clear();
 
-        //Pool.Clear();
+        Pool.Clear();
     }
 }

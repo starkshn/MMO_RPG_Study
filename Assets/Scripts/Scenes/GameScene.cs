@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    //void Start()
-    //{
-    //    init();
-    //}
-
+    
     protected override void init()
     {
         base.init();

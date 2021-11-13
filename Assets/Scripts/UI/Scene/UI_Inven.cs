@@ -36,7 +36,7 @@ public class UI_Inven : UI_Scene
             // go의 부모는 gridPanel인데 그녀석의 .gameObject == GridPanel 
             // gameObject의 기능
 
-            UI_Inven_Item invenItem = item.GetOrComponent<UI_Inven_Item>();
+            UI_Inven_Item invenItem = item.GetOrAddComponent<UI_Inven_Item>();
             // GridPanel의 GetOrCOmpoenent해서 UI_Inven_Item을 가져온다.
             invenItem.SetInfo($"{i}번");
             

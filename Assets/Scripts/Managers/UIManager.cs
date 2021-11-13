@@ -27,7 +27,7 @@ public class UIManager
 
     public void SetCanvas(GameObject go, bool sort = true)
     {
-        Canvas canvas = Util.GetOrComponent<Canvas>(go);
+        Canvas canvas = Util.GetOrAddComponent<Canvas>(go);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.overrideSorting = true;
 
@@ -54,7 +54,7 @@ public class UIManager
         {
             go.transform.SetParent(parent);
         }
-         return go.GetOrComponent<T>();
+         return go.GetOrAddComponent<T>();
     }
 
 
@@ -65,7 +65,7 @@ public class UIManager
 
         GameObject go = Managers.Resource.Instantiate($"UI/Scene/{name}");
 
-        T sceneUI = Util.GetOrComponent<T>(go);
+        T sceneUI = Util.GetOrAddComponent<T>(go);
         _sceneUI = sceneUI;
 
 
@@ -83,7 +83,7 @@ public class UIManager
         GameObject go = Managers.Resource.Instantiate($"UI/Popup/{name}");
         // 프리팹에 있는거 가져온
 
-        T popup = Util.GetOrComponent<T>(go);
+        T popup = Util.GetOrAddComponent<T>(go);
         _popupStack.Push(popup);
 
 

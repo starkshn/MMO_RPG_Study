@@ -8,7 +8,7 @@ public class ResourceManager
 {
     public T Load<T>(string path) where T : UnityEngine.Object
     {
-        if(typeof(T) == typeof(GameObject))
+        if(typeof(T) == typeof(GameObject)) // 이렇다면 프리팹일 확률이 굉장히 높다는 것이다.
         {
             string name = path;
             int index = name.LastIndexOf('/');
@@ -27,7 +27,7 @@ public class ResourceManager
 
     public GameObject Instantiate(string path, Transform parent = null)
     {
-        // 1. original 이미 들고있으면 바로 사용
+        // 1. original 이미 들고있으면 바로 사용 => 구현함 Load부분에서
         GameObject original = Load<GameObject>($"Prefabs/{path}");
         if (original == null)
         {
