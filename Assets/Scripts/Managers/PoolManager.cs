@@ -60,6 +60,12 @@ public class PoolManager
                 poolable = Create();
 
             poolable.gameObject.SetActive(true);
+
+            // DontDestroyOnLoad 해제 용도
+            // 한번이라도 DontDestroyOnLoad 위로 이동을 했다면 정상적으로 잘 작동을 할것이다.
+            if (parent == null)
+                poolable.transform.parent = Managers.Scene.CurrenScene.transform;
+
             poolable.transform.parent = parent;
             poolable.isUsing = true;
 
