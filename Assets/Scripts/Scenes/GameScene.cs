@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    class Test
+    {
+        public int id = 0;
+    }
+
     class CoroutineTest : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            yield return 1;
-            yield return 2;
-            yield return 3;
-            yield return 4;
+            for(int i = 0; i< 1000000; i++)
+            {
+                if(i % 10000 == 0)
+                    yield return null;
+            }
         }
     } 
-
-     
 
     protected override void init()
     { 
@@ -27,9 +31,10 @@ public class GameScene : BaseScene
 
         CoroutineTest test = new CoroutineTest();
 
-        foreach(int t in test)
+        foreach(System.Object t in test)
         {
-            Debug.Log(t);
+            Test value = (Test)t;
+            Debug.Log(value.id);
         }
     }
 
