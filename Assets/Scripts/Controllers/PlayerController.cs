@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     InputManager isSpace = new InputManager();
     //bool Jump = false;
     
-
     void Start()
     {
         Managers.Input.MouseAction -= OnMouseClicked;
@@ -129,37 +128,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //if(_moveToDest)
-        //{
-
-        //    // 잠시 주석처
-        //    wait_run_ratio = Mathf.Lerp(wait_run_ratio, 1, 10.0f * Time.deltaTime);
-        //    // wait_run_ratio값을 1로 일정시간 동안 옮겨주세요라는뜻, 뒤에 Time.deltaTime 부분은 자연스럽게 되도록 조절 해야함
-
-        //    Vector3 dir = _destPos - transform.position;
-        //    if (dir.magnitude < 0.00001f) // 도착했을때 정확하게 0이 안나온다 float끼리 뺼 때
-        //    {
-        //        _moveToDest = false;
-        //    }
-        //    else
-        //    {
-        //        float _moveDist = Mathf.Clamp(_speed * Time.deltaTime, 0, dir.magnitude);
-        //        // _moveDist의 최소값은 0이고 최대값은 dir.magnitude실제 거리 이다.
-
-        //        //float _moveDist = _speed * Time.deltaTime;
-        //        //if (_moveDist >= dir.magnitude)
-        //        //{
-        //        //    _moveDist = dir.magnitude;
-        //        //}
-        //        transform.position += dir.normalized * _moveDist;
-        //        // dir은 방향벡터이긴한데 방향이랑 크기 둘다 가지고잇으니까 normalized 를 통해서 크기가 1인 방향벡터로 바꿔준다.
-
-        //        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10 * Time.deltaTime);
-
-        //        //transform.LookAt(_destPos);
-        //    }
-        //}
-
         switch (_state)
         {
             case PlayerState.Die:
@@ -177,37 +145,7 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Sliding:
                 UpdateSilding();
                 break;
-
         }
-
-
-        //if (_moveToDest)
-        //{
-        //    wait_run_ratio = Mathf.Lerp(wait_run_ratio, 1, 10.0f * Time.deltaTime);
-        //    // wait_run_ratio값을 1로 일정시간 동안 옮겨주세요라는뜻, 뒤에 Time.deltaTime 부분은 자연스럽게 되도록 조절 해야함
-
-        //    Animator anim = GetComponent<Animator>();
-        //    anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        //    anim.Play("WAIT_RUN");
-        //}
-        //else
-        //{
-        //    wait_run_ratio = Mathf.Lerp(wait_run_ratio, 0, 10.0f * Time.deltaTime);
-        //    // 현재 값에서 0으로 점점 이동을 해야 움직이는 상태에서 멈추게 된다.
-
-        //    Animator anim = GetComponent<Animator>();
-        //    anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        //    anim.Play("WAIT_RUN");
-        //}
-
-        //Animator anim = GetComponent<Animator>();
-        //// GetComponent사용하면 component 뺴올 수 있다.
-        //anim.Play("RUN");
-        //anim.Play("WAIT");
-        // 일단 키보드로 움직이는 것은 생각 안하고 마우스로만 움직이는거 구현해보자
-
-
-
     }
 
     void OnMouseClicked(Define.MouseEvent evt)
