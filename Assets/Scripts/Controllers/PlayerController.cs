@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   
     public enum PlayerState
     {
         Die,
@@ -45,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         // 이동하는 상태
         Vector3 dir = _destPos - transform.position;
-        if (dir.magnitude < 0.00001f) // 도착했을때 정확하게 0이 안나온다 float끼리 뺼 때
+        if (dir.magnitude < 0.1f)
         {
             //_moveToDest = false; 목적지에 도달한 상태이니까
             _state = PlayerState.Idle;
@@ -53,14 +52,16 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // else 니까 이동하는 상태
+            // ToDo
+            NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
+
             float _moveDist = Mathf.Clamp(_speed * Time.deltaTime, 0, dir.magnitude);
-            transform.position += dir.normalized * _moveDist;
+            //nma.CalculatePath (애도 굉장히 중요하게 사용이 될 거 같다.)
+            nma.Move(dir.normalized * _moveDist); 
+
+            //transform.position += dir.normalized * _moveDist;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10 * Time.deltaTime);
         }
-
-        
-
         // 애니매이션
         // wait_run_ratio값을 1로 일정시간 동안 옮겨주세요라는뜻, 뒤에 Time.deltaTime 부분은 자연스럽게 되도록 조절 해야함
         Animator anim = GetComponent<Animator>();
@@ -115,8 +116,6 @@ public class PlayerController : MonoBehaviour
         Animator anim = GetComponent<Animator>();
         anim.SetFloat("jump", 1);
         anim.SetFloat("slide", 0);
-
-        Debug.Log("점프했다!");
        
     }
 
