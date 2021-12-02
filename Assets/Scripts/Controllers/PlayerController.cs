@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         // 아무것도 못함
     }
 
+    
     void UpdateMoving()
     {
         // 이동하는 상태
@@ -56,10 +57,16 @@ public class PlayerController : MonoBehaviour
             NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
 
             float _moveDist = Mathf.Clamp(_speed * Time.deltaTime, 0, dir.magnitude);
-            //nma.CalculatePath (애도 굉장히 중요하게 사용이 될 거 같다.)
-            nma.Move(dir.normalized * _moveDist); 
+            //nma.CalculatePath (애도 굉장히 중요하게 사용이 될 거 같다. => 나중에 몬스터)
+            nma.Move(dir.normalized * _moveDist);
 
-            //transform.position += dir.normalized * _moveDist;
+            Debug.DrawRay(transform.position + Vector3.up * 0.5f, dir.normalized, Color.green);
+            if (Physics.Raycast(transform.position + Vector3.up * 0.5f , dir, 1.0f, LayerMask.GetMask("Block")))
+            {
+                _state = PlayerState.Idle;
+                return;
+            }
+
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10 * Time.deltaTime);
         }
         // 애니매이션
@@ -153,7 +160,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
+        //Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
         
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100.0f, LayerMask.GetMask("Wall")))
