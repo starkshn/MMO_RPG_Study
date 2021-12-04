@@ -2832,6 +2832,7 @@ GameObject:
   - component: {fileID: 3545283602026910499}
   - component: {fileID: 3545283602026910511}
   - component: {fileID: 8624170256396779314}
+  - component: {fileID: -6623559890839065817}
   m_Layer: 0
   m_Name: UnityChan
   m_TagString: Untagged
@@ -2930,6 +2931,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUsing: 0
+--- !u!114 &-6623559890839065817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545283602026910496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77951884dfa69904084e7fc5d06d3e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 0
+  _hp: 0
+  _maxHp: 0
+  _moveSpeed: 0
+  _attack: 0
+  _defense: 0
+  _exp: 0
+  _gold: 0
 --- !u!1 &3653416128594902625
 GameObject:
   m_ObjectHideFlags: 0
