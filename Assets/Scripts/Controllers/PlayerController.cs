@@ -12,6 +12,14 @@ public class PlayerController : MonoBehaviour
     Texture2D _attackIcon;
     Texture2D _handIcon;
 
+    enum CursorType
+    {
+        None,
+        Attack,
+        Hand,
+    }
+
+    CursorType _cursorType = CursorType.None;
 
     void Start()
     {
@@ -82,13 +90,19 @@ public class PlayerController : MonoBehaviour
         // 현재 게임상태에 대한 정보를 넘겨준다.
         anim.SetFloat("speed", _stat.MoveSpeed);
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            _state = PlayerState.Sliding;
-            
-        }
-
     }
+
+    //void GetSlide()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.A))
+    //    {
+    //        _state = PlayerState.Sliding;
+    //    }
+    //   if(_state == PlayerState.Moving)
+    //    {
+    //        _state = PlayerState.Moving;
+    //    }
+    //}
 
     //void OnRunEvent(int a)
     //{
@@ -172,11 +186,20 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == (int)Define.Layer.Monster)
             {
-                Cursor.SetCursor(_attackIcon, new Vector2(_attackIcon.width / 5, 0) , CursorMode.Auto);
+                if(_cursorType != CursorType.Attack)
+                {
+                    Cursor.SetCursor(_attackIcon, new Vector2(_attackIcon.width / 5, 0), CursorMode.Auto);
+                    _cursorType = CursorType.Attack;
+                }
             }
             else
             {
-                Cursor.SetCursor(_handIcon, new Vector2(_handIcon.width / 3, 0), CursorMode.Auto);
+                if(_cursorType != CursorType.Hand)
+                {
+                    Cursor.SetCursor(_handIcon, new Vector2(_handIcon.width / 3, 0), CursorMode.Auto);
+                    _cursorType = CursorType.Hand;
+                }
+                
             }
         }
     }
