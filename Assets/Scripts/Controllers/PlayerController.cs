@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
     int _mask = (1 << (int)Define.Layer.Ground | (1 << (int)Define.Layer.Monster));
     
 
-    void OnMouseClicked(Define.MouseEvent evt)
+    void OnMouseEvent(Define.MouseEvent evt)
     {
         if (_state == PlayerState.Die)
             return;
