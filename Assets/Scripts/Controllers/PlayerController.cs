@@ -74,9 +74,11 @@ public class PlayerController : MonoBehaviour
             nma.Move(dir.normalized * _moveDist);
 
             Debug.DrawRay(transform.position + Vector3.up * 0.5f, dir.normalized, Color.green);
+
             if (Physics.Raycast(transform.position + Vector3.up * 0.5f , dir, 1.0f, LayerMask.GetMask("Block")))
             {
-                _state = PlayerState.Idle;
+                if(Input.GetMouseButton(0) == false) // 마우스를 누르고 있다.
+                    _state = PlayerState.Idle;
                 return;
             }
 
@@ -175,7 +177,11 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMouseCursor()
     {
+        if (Input.GetMouseButton(0))
+            return;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 100.0f, _mask))
@@ -198,6 +204,7 @@ public class PlayerController : MonoBehaviour
                 
             }
         }
+
     }
 
     int _mask = (1 << (int)Define.Layer.Ground | (1 << (int)Define.Layer.Monster));
@@ -210,17 +217,18 @@ public class PlayerController : MonoBehaviour
             return;
 
         RaycastHit hit;
-
+            
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
         //Debug.DrawR  ay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
 
-        switch(evt)
+        switch (evt) 
         {
+            // PointerDown은 유니티의 Input.GetMouseButtonDown(0)에 대응을 한다.
             case Define.MouseEvent.PointerDown:
                 {
-                    if(raycastHit)
+                    if (raycastHit)
                     {
                         _destPos = hit.point;
                         _state = PlayerState.Moving;
@@ -231,29 +239,27 @@ public class PlayerController : MonoBehaviour
                         else
                             _lockTarget = null;
                     }
-                }  
-                break;
-
-            case Define.MouseEvent.Press:
-                {
-                    if(_lockTarget != null)
-                    {
-                        _destPos = _lockTarget.transform.position;
-                    }
-                    else if(raycastHit)
-                        _destPos = hit.point;
-                    
                 }
                 break;
 
+            // Press는  유니티의 Input.GetMouseButton(0)에 대응을 한다.
+            case Define.MouseEvent.Press:
+                {
+                    if (_lockTarget != null)
+                    {
+                        _destPos = _lockTarget.transform.position;
+                    }
+                    else if (raycastHit)
+                        _destPos = hit.point;
+
+                }
+                break;
+
+            // PointerUp == Input.GetMouseButtonUp(0)
             case Define.MouseEvent.PointerUp:
                 _lockTarget = null;
                 break;
         }
-
-
-
-
     }
 
     void OnKeyBoardPressed(Define.KeyBoardEvent evt)
