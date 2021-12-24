@@ -44,11 +44,15 @@ public class PlayerController : MonoBehaviour
         // 몬스터가 사정거리 범위 안에들어오면 공격
         if(_lockTarget != null)
         {
-
+            float distance = (_destPos - transform.position).magnitude;
+            if(distance <= 1)
+            {
+                _state = PlayerState.Skill;
+                return;
+            }
         }
 
         // 이동하는 부분
-
         Vector3 dir = _destPos - transform.position;
         if (dir.magnitude < 0.1f)
         {
@@ -142,6 +146,11 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("slide", 1);
     }
 
+    void UpdateSkill()
+    {
+        Debug.Log("UpdateSkill!");
+    }
+
     void Update()
     {
         switch (_state)
@@ -161,11 +170,13 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Sliding:
                 UpdateSilding();
                 break;
+            case PlayerState.Skill:
+                UpdateSkill();
+                break;
+
         }
 
     } 
-
-
     int _mask = (1 << (int)Define.Layer.Ground | (1 << (int)Define.Layer.Monster));
 
     GameObject _lockTarget;
@@ -215,9 +226,10 @@ public class PlayerController : MonoBehaviour
                 break;
 
             // PointerUp == Input.GetMouseButtonUp(0)
-            case Define.MouseEvent.PointerUp:
-                _lockTarget = null;
-                break;
+            // case Define.MouseEvent.ButtonUp(0)에서 _lockTarget = null로 해주니까 한번 클릭시 로그가 안찍힌다.
+            //case Define.MouseEvent.PointerUp:
+            //    _lockTarget = null;
+            //    break;
         }
     }
 
