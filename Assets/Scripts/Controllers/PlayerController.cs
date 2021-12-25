@@ -31,7 +31,40 @@ public class PlayerController : MonoBehaviour
         Skill,
     }
 
+    [SerializeField]
     PlayerState _state = PlayerState.Idle;
+
+    public PlayerState State
+    {
+        get { return _state;  }
+
+        set
+        {
+            _state = value;
+
+            Animator anim = GetComponent<Animator>();
+
+            switch(_state)
+            {
+                case PlayerState.Die:
+                    anim.SetBool("attack", false);
+                    break;
+                case PlayerState.Idle:
+                    anim.SetBool("attack", false);
+                    anim.SetFloat("speed", 0);
+                    break;
+                case PlayerState.Moving:
+                    anim.SetBool("attack", false);
+                    anim.SetFloat("speed", _stat.MoveSpeed);
+                    break;
+                case PlayerState.Skill:
+                    anim.SetBool("attack", true);
+                    break;
+            }
+            
+            
+        }
+    }
 
     void UpdateDie()
     {
@@ -47,7 +80,7 @@ public class PlayerController : MonoBehaviour
             float distance = (_destPos - transform.position).magnitude;
             if(distance <= 1)
             {
-                _state = PlayerState.Skill;
+                State = PlayerState.Skill;
                 return;
             }
         }
@@ -55,9 +88,10 @@ public class PlayerController : MonoBehaviour
         // 이동하는 부분
         Vector3 dir = _destPos - transform.position;
         if (dir.magnitude < 0.1f)
+
         {
             //_moveToDest = false; 목적지에 도달한 상태이니까
-            _state = PlayerState.Idle;
+            State = PlayerState.Idle;
 
         }
         else
@@ -74,7 +108,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position + Vector3.up * 0.5f , dir, 1.0f, LayerMask.GetMask("Block")))
             {
                 if(Input.GetMouseButton(0) == false) // 마우스를 누르고 있다.
-                    _state = PlayerState.Idle;
+                    State = PlayerState.Idle;
                 return;
             }
 
@@ -83,9 +117,10 @@ public class PlayerController : MonoBehaviour
 
         // 애니매이션
         // wait_run_ratio값을 1로 일정시간 동안 옮겨주세요라는뜻, 뒤에 Time.deltaTime 부분은 자연스럽게 되도록 조절 해야함
-        Animator anim = GetComponent<Animator>();
-        // 현재 게임상태에 대한 정보를 넘겨준다.
-        anim.SetFloat("speed", _stat.MoveSpeed);
+
+        //Animator anim = GetComponent<Animator>();
+        //// 현재 게임상태에 대한 정보를 넘겨준다.
+        //anim.SetFloat("speed", _stat.MoveSpeed);
 
     }
 
@@ -108,52 +143,65 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    void OnRunEvent(string a)
-    {
-        //Debug.Log($"왼발! {a}");
-        // 나중에 이것을 사운드로 대체하거나 할 수 있다.
-    }
+    //void OnRunEvent(string a)
+    //{
+    //    //Debug.Log($"왼발! {a}");
+    //    // 나중에 이것을 사운드로 대체하거나 할 수 있다.
+    //}
 
-    void RightFoot()
-    {
-        //Debug.Log("오른발!");
+    //void RightFoot()
+    //{
+    //    //Debug.Log("오른발!");
        
-    }
+    //}
 
     void UpdateIdle()
     {
         // 키를 움직이면 UpdateMoving이 실행되게 코드를 짜면된다.
 
         // 애니매이션
-        Animator anim = GetComponent<Animator>();
-        anim.SetFloat("speed", 0);
-        anim.SetFloat("jump", 0);
-        anim.SetFloat("slide", 0);
+        //Animator anim = GetComponent<Animator>();
+        //anim.SetFloat("speed", 0);
+        //anim.SetFloat("jump", 0);
+        //anim.SetFloat("slide", 0);
 
     }
 
-    void UpdateJump()
-    {
-        Animator anim = GetComponent<Animator>();
-        anim.SetFloat("jump", 1);
-        anim.SetFloat("slide", 0);
+    //void UpdateJump()
+    //{
+    //    Animator anim = GetComponent<Animator>();
+    //    anim.SetFloat("jump", 1);
+    //    anim.SetFloat("slide", 0);
        
-    }
+    //}
 
-    void UpdateSilding()
-    {
-        Animator anim = GetComponent<Animator>();
-        anim.SetFloat("slide", 1);
-    }
+    //void UpdateSilding()
+    //{
+    //    Animator anim = GetComponent<Animator>();
+    //    anim.SetFloat("slide", 1);
+    //}
 
     void UpdateSkill()
     {
-        Debug.Log("UpdateSkill!");
+        //Animator anim = GetComponent<Animator>();
+
+        //anim.SetBool("attack", true);
+    }
+
+    void OnHitEvent()
+    {
+        Debug.Log("OnHitEvent!");
+
+        Animator anim = GetComponent<Animator>();
+
+        anim.SetBool("attack", false);
+
+        State = PlayerState.Moving;
     }
 
     void Update()
     {
-        switch (_state)
+        switch (State)
         {
             case PlayerState.Die:
                 UpdateDie();
@@ -164,12 +212,12 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Idle:
                 UpdateIdle();
                 break;
-            case PlayerState.Jump:
-                UpdateJump();
-                break;
-            case PlayerState.Sliding:
-                UpdateSilding();
-                break;
+            //case PlayerState.Jump:
+            //    UpdateJump();
+            //    break;
+            //case PlayerState.Sliding:
+            //    UpdateSilding();
+            //    break;
             case PlayerState.Skill:
                 UpdateSkill();
                 break;
@@ -181,9 +229,9 @@ public class PlayerController : MonoBehaviour
 
     GameObject _lockTarget;
 
-    void OnMouseEvent(Define.MouseEvent evt)
+    public void OnMouseEvent(Define.MouseEvent evt)
     {
-        if (_state == PlayerState.Die)
+        if (State == PlayerState.Die)
             return;
 
         RaycastHit hit;
@@ -201,7 +249,7 @@ public class PlayerController : MonoBehaviour
                     if (raycastHit)
                     {
                         _destPos = hit.point;
-                        _state = PlayerState.Moving;
+                        State = PlayerState.Moving;
 
                         if (hit.collider.gameObject.layer == (int)Define.Layer.Monster)
                             _lockTarget = hit.collider.gameObject;
@@ -216,12 +264,9 @@ public class PlayerController : MonoBehaviour
             case Define.MouseEvent.Press:
                 {
                     if (_lockTarget != null)
-                    {
                         _destPos = _lockTarget.transform.position;
-                    }
                     else if (raycastHit)
                         _destPos = hit.point;
-
                 }
                 break;
 
@@ -235,11 +280,11 @@ public class PlayerController : MonoBehaviour
 
     void OnKeyBoardPressed(Define.KeyBoardEvent evt)
     {
-        if (_state == PlayerState.Die)
+        if (State == PlayerState.Die)
             return;
 
         Debug.Log("들어옴");
-        _state = PlayerState.Jump;
+        State = PlayerState.Jump;
         
     }
 

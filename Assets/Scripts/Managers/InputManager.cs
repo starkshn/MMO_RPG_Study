@@ -58,24 +58,24 @@ public class InputManager
         }
 
         //키보드로 Spcaebar 입력 받았을 때
-        if (KeyBoardAction != null)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("스페이스바 눌림!");
-                KeyBoardAction.Invoke(Define.KeyBoardEvent.P_Space);
-                _pressed_space = true;
-            }
-            else
-            {
-                if (_pressed_space)
-                {
-                    Debug.Log("현재는 트루 좀있다 false");
-                    _pressed_space = false;
+        //if (KeyBoardAction != null)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        Debug.Log("스페이스바 눌림!");
+        //        KeyBoardAction.Invoke(Define.KeyBoardEvent.P_Space);
+        //        _pressed_space = true;
+        //    }
+        //    else
+        //    {
+        //        if (_pressed_space)
+        //        {
+        //            Debug.Log("현재는 트루 좀있다 false");
+        //            _pressed_space = false;
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
     }
 
     public void Clear()
