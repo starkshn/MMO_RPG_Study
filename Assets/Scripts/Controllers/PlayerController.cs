@@ -5,22 +5,6 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    PlayerStat _stat;
-    Vector3 _destPos;
-    InputManager isSpace = new InputManager();
-
-    void Start()
-    {
-        _stat = gameObject.GetComponent<PlayerStat>();
-
-        Managers.Input.MouseAction -= OnMouseEvent;
-        Managers.Input.MouseAction += OnMouseEvent;
-
-        Managers.Input.KeyBoardAction -= OnKeyBoardPressed;
-        Managers.Input.KeyBoardAction += OnKeyBoardPressed;
-
-    } 
-
     public enum PlayerState
     {
         Die,
@@ -31,12 +15,21 @@ public class PlayerController : MonoBehaviour
         Skill,
     }
 
+    int _mask = (1 << (int)Define.Layer.Ground | (1 << (int)Define.Layer.Monster));
+
+    PlayerStat _stat;
+    Vector3 _destPos;
+
+    InputManager isSpace = new InputManager();
+
     [SerializeField]
     PlayerState _state = PlayerState.Idle;
 
+    GameObject _lockTarget;
+
     public PlayerState State
     {
-        get { return _state;  }
+        get { return _state; }
 
         set
         {
@@ -44,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
             Animator anim = GetComponent<Animator>();
 
-            switch(_state)
+            switch (_state)
             {
                 case PlayerState.Die:
                     anim.SetBool("attack", false);
@@ -61,10 +54,22 @@ public class PlayerController : MonoBehaviour
                     anim.SetBool("attack", true);
                     break;
             }
-            
-            
+
+
         }
     }
+
+    void Start()
+    {
+        _stat = gameObject.GetComponent<PlayerStat>();
+
+        Managers.Input.MouseAction -= OnMouseEvent;
+        Managers.Input.MouseAction += OnMouseEvent;
+
+        Managers.Input.KeyBoardAction -= OnKeyBoardPressed;
+        Managers.Input.KeyBoardAction += OnKeyBoardPressed;
+
+    } 
 
     void UpdateDie()
     {
@@ -192,9 +197,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("OnHitEvent!");
 
-        Animator anim = GetComponent<Animator>();
-
-        anim.SetBool("attack", false);
+        //TODO
 
         State = PlayerState.Moving;
     }
@@ -225,23 +228,35 @@ public class PlayerController : MonoBehaviour
         }
 
     } 
-    int _mask = (1 << (int)Define.Layer.Ground | (1 << (int)Define.Layer.Monster));
 
-    GameObject _lockTarget;
+    void OnMouseEvent(Define.MouseEvent evt)
+    {
+        switch(State)
+        {
+            case PlayerState.Idle:
+                OnMouseEvent_IdleRun(evt);
+                break;
+            case PlayerState.Moving:
+                OnMouseEvent_IdleRun(evt);
+                break;
+            case PlayerState.Skill:
+                break;
+        }
+    }
 
-    public void OnMouseEvent(Define.MouseEvent evt)
+
+   void OnMouseEvent_IdleRun(Define.MouseEvent evt)
     {
         if (State == PlayerState.Die)
             return;
 
         RaycastHit hit;
-            
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
         //Debug.DrawR  ay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
 
-        switch (evt) 
+        switch (evt)
         {
             // PointerDown은 유니티의 Input.GetMouseButtonDown(0)에 대응을 한다.
             case Define.MouseEvent.PointerDown:
@@ -270,11 +285,11 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
 
-            // PointerUp == Input.GetMouseButtonUp(0)
-            // case Define.MouseEvent.ButtonUp(0)에서 _lockTarget = null로 해주니까 한번 클릭시 로그가 안찍힌다.
-            //case Define.MouseEvent.PointerUp:
-            //    _lockTarget = null;
-            //    break;
+                // PointerUp == Input.GetMouseButtonUp(0)
+                // case Define.MouseEvent.ButtonUp(0)에서 _lockTarget = null로 해주니까 한번 클릭시 로그가 안찍힌다.
+                //case Define.MouseEvent.PointerUp:
+                //    _lockTarget = null;
+                //    break;
         }
     }
 
@@ -285,8 +300,6 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("들어옴");
         State = PlayerState.Jump;
-        
-    }
 
-   
+    }
 }
