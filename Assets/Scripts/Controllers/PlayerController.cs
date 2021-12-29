@@ -40,18 +40,16 @@ public class PlayerController : MonoBehaviour
             switch (_state)
             {
                 case PlayerState.Die:
-                    anim.SetBool("attack", false);
                     break;
                 case PlayerState.Idle:
-                    anim.SetBool("attack", false);
-                    anim.SetFloat("speed", 0);
+                    anim.CrossFade("WAIT", 0.1f);
+                    // anim.SetInt("state", (int)_state);
                     break;
                 case PlayerState.Moving:
-                    anim.SetBool("attack", false);
-                    anim.SetFloat("speed", _stat.MoveSpeed);
+                    anim.CrossFade("RUN", 0.1f);
                     break;
                 case PlayerState.Skill:
-                    anim.SetBool("attack", true);
+                    anim.CrossFade("ATTACK", 0.1f, -1, 0);
                     break;
             }
 
@@ -93,7 +91,6 @@ public class PlayerController : MonoBehaviour
         // 이동하는 부분
         Vector3 dir = _destPos - transform.position;
         if (dir.magnitude < 0.1f)
-
         {
             //_moveToDest = false; 목적지에 도달한 상태이니까
             State = PlayerState.Idle;
@@ -188,9 +185,12 @@ public class PlayerController : MonoBehaviour
 
     void UpdateSkill()
     {
-        //Animator anim = GetComponent<Animator>();
-
-        //anim.SetBool("attack", true);
+        if(_lockTarget != null)
+        {
+            Vector3 dir = _lockTarget.transform.position - transform.position;
+            Quaternion quat = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
+        }
     }
 
     void OnHitEvent()
@@ -198,8 +198,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("OnHitEvent!");
 
         //TODO
-
-        State = PlayerState.Moving;
+        if(_stopSkill)
+        {
+            State = PlayerState.Idle;
+        }
+        else
+        {
+            State = PlayerState.Skill;
+        }
     }
 
     void Update()
@@ -227,8 +233,9 @@ public class PlayerController : MonoBehaviour
 
         }
 
-    } 
+    }
 
+    bool _stopSkill = false;
     void OnMouseEvent(Define.MouseEvent evt)
     {
         switch(State)
@@ -240,6 +247,10 @@ public class PlayerController : MonoBehaviour
                 OnMouseEvent_IdleRun(evt);
                 break;
             case PlayerState.Skill:
+                {
+                    if(evt == Define.MouseEvent.PointerUp)
+                        _stopSkill = true;
+                }
                 break;
         }
     }
@@ -252,7 +263,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+         
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
         //Debug.DrawR  ay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
 
@@ -264,7 +275,10 @@ public class PlayerController : MonoBehaviour
                     if (raycastHit)
                     {
                         _destPos = hit.point;
+                        _destPos.y = 0;
+
                         State = PlayerState.Moving;
+                        _stopSkill = false;
 
                         if (hit.collider.gameObject.layer == (int)Define.Layer.Monster)
                             _lockTarget = hit.collider.gameObject;
@@ -278,18 +292,21 @@ public class PlayerController : MonoBehaviour
             // Press는  유니티의 Input.GetMouseButton(0)에 대응을 한다.
             case Define.MouseEvent.Press:
                 {
-                    if (_lockTarget != null)
-                        _destPos = _lockTarget.transform.position;
-                    else if (raycastHit)
+                    if (_lockTarget == null && raycastHit)
                         _destPos = hit.point;
                 }
                 break;
 
-                // PointerUp == Input.GetMouseButtonUp(0)
-                // case Define.MouseEvent.ButtonUp(0)에서 _lockTarget = null로 해주니까 한번 클릭시 로그가 안찍힌다.
-                //case Define.MouseEvent.PointerUp:
-                //    _lockTarget = null;
-                //    break;
+            // PointerUp == Input.GetMouseButtonUp(0)
+            // case Define.MouseEvent.ButtonUp(0)에서 _lockTarget = null로 해주니까 한번 클릭시 로그가 안찍힌다.
+            //case Define.MouseEvent.PointerUp:
+            //    _lockTarget = null;
+            //    break;
+
+            // 공격#2 에서 PointerUp일 경우 _stopSkill 
+            case Define.MouseEvent.PointerUp:
+                _stopSkill = true;
+                break;
         }
     }
 
