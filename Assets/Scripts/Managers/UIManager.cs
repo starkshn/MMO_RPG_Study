@@ -42,6 +42,23 @@ public class UIManager
         }
     }
 
+    public T Make3D_UI<T>(Transform parent = null, string name = null) where T : UI_Base
+    {
+        if (string.IsNullOrEmpty(name))
+            name = typeof(T).Name;
+
+
+        GameObject go = Managers.Resource.Instantiate($"UI/3D_UI/{name}");
+
+        if (parent != null)
+        {
+            go.transform.SetParent(parent);
+        }
+
+
+        return go.GetOrAddComponent<T>();
+    }
+
     public T MakeSubItem<T>(Transform parent = null, string name = null) where T : UI_Base
     {
         if (string.IsNullOrEmpty(name))
