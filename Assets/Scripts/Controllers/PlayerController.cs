@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
         Managers.Input.KeyBoardAction -= OnKeyBoardPressed;
         Managers.Input.KeyBoardAction += OnKeyBoardPressed;
 
+        Managers.UI.Make3D_UI<UI_HPBar>(transform);
+
     } 
 
     void UpdateDie()

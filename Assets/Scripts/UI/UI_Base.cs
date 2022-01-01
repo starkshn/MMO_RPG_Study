@@ -76,10 +76,4 @@ public abstract class UI_Base : MonoBehaviour
         // gameobject를 받아와서 UI_EventHandler라는 컴포넌트를 추출을 한다음 구독을 추가해주는 방식으로 이루어졌었다.
         //evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
     }
-
-
-
-
-
-
 }
