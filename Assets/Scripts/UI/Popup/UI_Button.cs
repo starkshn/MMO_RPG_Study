@@ -44,9 +44,8 @@ public class UI_Button : UI_Popup
 
     }
 
-    private void Start()
-    {
-        init();
+   
+        //init(); -> UI_Base에서 Start() 안에서 init호출 하였기 때문에 주석 처리로 변경함.
 
         //Bind(Buttons); 이렇게 넘겨주고 싶지만 변수가 아니라서 넘겨줄 수 없다리
         // Part1에서 c# 기초에서 reflection이라는 기능을 배웠제?
@@ -76,7 +75,7 @@ public class UI_Button : UI_Popup
         //evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
         // 람다식으로 함수를 선언함 
 
-    }
+    
 
     public override void init()
     {

@@ -13996,6 +13996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 1699901268223081650, guid: 14d608e6132bd3947a370324c7f2ae8b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1699901268223081651, guid: 14d608e6132bd3947a370324c7f2ae8b, type: 3}
       propertyPath: m_Camera
       value: 
