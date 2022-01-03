@@ -26,7 +26,7 @@ public class UI_HPBar : UI_Base
     private void Update()
     {
         Transform parent = gameObject.transform.parent;
-        transform.position = parent.position + Vector3.up * (parent.GetComponent<Collider>().bounds.size.y + 0.5f);
+        transform.position = parent.position + Vector3.up * (parent.GetComponent<Collider>().bounds.size.y + 0.3f);
         
 
         //transform.LookAt(Camera.main.transform);
