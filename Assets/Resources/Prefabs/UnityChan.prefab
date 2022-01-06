@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: -6623559890839065817}
   m_Layer: 0
   m_Name: UnityChan
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2918,7 +2918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a587ea69263e47309e9a9f499617b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destPos: {x: 0, y: 0, z: 0}
   _state: 2
+  _lockTarget: {fileID: 0}
 --- !u!54 &3545283602026910499
 Rigidbody:
   m_ObjectHideFlags: 0

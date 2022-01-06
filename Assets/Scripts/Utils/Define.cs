@@ -5,6 +5,16 @@ using UnityEngine;
 public class Define 
 {
 
+    public enum State
+    {
+        Die,
+        Moving,
+        Idle,
+        Jump,
+        Sliding,
+        Skill,
+    }
+
     public enum Layer
     {
         Monster = 8,
@@ -55,4 +65,6 @@ public class Define
     {
         QuarterView
     }
+
+    
 }
