@@ -51,20 +51,23 @@ public class PlayerController : BaseController
         else
         {
             // ToDo
-            NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
-
-            float _moveDist = Mathf.Clamp(_stat.MoveSpeed * Time.deltaTime, 0, dir.magnitude);
-            //nma.CalculatePath (애도 굉장히 중요하게 사용이 될 거 같다. => 나중에 몬스터)
-            nma.Move(dir.normalized * _moveDist);
+            //NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
+            //float _moveDist = Mathf.Clamp(_stat.MoveSpeed * Time.deltaTime, 0, dir.magnitude);
+            ////nma.CalculatePath (애도 굉장히 중요하게 사용이 될 거 같다. => 나중에 몬스터)
+            //nma.Move(dir.normalized * _moveDist);
+            // TODO 부터 지금 NVM 를 사용해서 Move하니까 몬스터가 밀쳐지는데
+            // 원래 처음에 했던 방식으로 하면 
 
             Debug.DrawRay(transform.position + Vector3.up * 0.5f, dir.normalized, Color.green);
-
             if (Physics.Raycast(transform.position + Vector3.up * 0.5f , dir, 1.0f, LayerMask.GetMask("Block")))
             {
                 if(Input.GetMouseButton(0) == false) // 마우스를 누르고 있다.
                     State = Define.State.Idle;
                 return;
             }
+
+            float _moveDist = Mathf.Clamp(_stat.MoveSpeed * Time.deltaTime, 0, dir.magnitude);
+            transform.position += dir.normalized * _moveDist;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10 * Time.deltaTime);
         }
@@ -82,7 +85,6 @@ public class PlayerController : BaseController
 
     void OnHitEvent()
     {
-
         if (_lockTarget != null)
         {
             // TODO
@@ -91,7 +93,7 @@ public class PlayerController : BaseController
             PlayerStat myStat = transform.GetComponent<PlayerStat>();
 
             int damage = Mathf.Max(0, myStat.Attack - targetStat.Defense);
-            Debug.Log(damage);
+            
             targetStat.Hp -= damage;
         }
 

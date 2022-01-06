@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     
 
     [SerializeField]
-    Vector3 _delta = new Vector3(0.0f, 6.0f, -5.0f); // _delta 라는 것은 player 기준으로 얼마만큼 떨어져있는지를 나타내는것임
+    Vector3 _delta = new Vector3(0.0f, 5.0f, -5.0f); // _delta 라는 것은 player 기준으로 얼마만큼 떨어져있는지를 나타내는것임
 
     [SerializeField]
     GameObject _player = null;

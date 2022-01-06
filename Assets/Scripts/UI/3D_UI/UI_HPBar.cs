@@ -21,14 +21,12 @@ public class UI_HPBar : UI_Base
         
     }
 
-    //public Vector3 height = new Vector3(0, 2, 0);
 
     private void Update()
     {
         Transform parent = gameObject.transform.parent;
         transform.position = parent.position + Vector3.up * (parent.GetComponent<Collider>().bounds.size.y + 0.3f);
         
-
         //transform.LookAt(Camera.main.transform);
         transform.rotation = Camera.main.transform.rotation;
 
