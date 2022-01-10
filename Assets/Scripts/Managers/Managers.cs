@@ -10,7 +10,12 @@ public class Managers : MonoBehaviour
     // 외부에서 얘를 사용하고싶을때는
     static Managers Instance { get { init(); return s_instance; } } // 유일한 매니저를 갖고온다 
 
+    #region Contents
+    GameManagerEx _game = new GameManagerEx();
+    public static GameManagerEx Game { get { return Instance._game;  } }
+    #endregion
 
+    #region Core
     DataManager _data = new DataManager();
     InputManager _input = new InputManager();
     PoolManager _pool = new PoolManager();
@@ -26,6 +31,8 @@ public class Managers : MonoBehaviour
     public static SceneManagerEx Scene { get { return Instance._scene; } } // SceneManager는 UI위에 위치하니까 여기다가 넣어주자
     public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance._ui; } }
+    #endregion
+
 
     void Start()
     {
