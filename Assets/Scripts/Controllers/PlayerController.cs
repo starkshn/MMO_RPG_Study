@@ -25,6 +25,7 @@ public class PlayerController : BaseController
 
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.Make3D_UI<UI_HPBar>(transform);
+
     }
 
     protected override void UpdateMoving()

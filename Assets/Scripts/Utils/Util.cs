@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Util
 {
-    // UI_Base 에서 Getcompnent하느느 부분가져옴 자주 쓰이기 때문에
+    // UI_Base 에서 Getcompnent하는 부분가져옴 자주 쓰이기 때문에
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
         T component = go.GetComponent<T>();
@@ -61,7 +61,7 @@ public class Util
             }
         }
 
-        return null; // 못찾으면 그냥 ㅜULL로 return 
+        return null; // 못찾으면 그냥 NULL로 return 
     }
 
 }

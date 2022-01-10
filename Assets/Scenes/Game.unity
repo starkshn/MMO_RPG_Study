@@ -11476,11 +11476,11 @@ PrefabInstance:
       objectReference: {fileID: 1736978097}
     - target: {fileID: 5896460479992193411, guid: c29b3e85195df46eca5e786ab5e01a74, type: 3}
       propertyPath: _delta.y
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5896460479992193411, guid: c29b3e85195df46eca5e786ab5e01a74, type: 3}
       propertyPath: _delta.z
-      value: -7.5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 5896460479992193412, guid: c29b3e85195df46eca5e786ab5e01a74, type: 3}
       propertyPath: m_Enabled

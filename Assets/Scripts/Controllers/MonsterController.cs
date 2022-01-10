@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class MonsterController : BaseController
 {
-
     Stat _stat;
 
     [SerializeField]
@@ -99,9 +98,11 @@ public class MonsterController : BaseController
         {
             // Ã¼·Â ±ï±â
             Stat targetStat = _lockTarget.GetComponent<Stat>();
-            Stat monsterStat = transform.GetComponent<Stat>();
-            int damage = Mathf.Max(0, monsterStat.Attack - targetStat.Defense);
+            int damage = Mathf.Max(0, _stat.Attack - targetStat.Defense);
             targetStat.Hp -= damage;
+
+            if (targetStat.Hp <= 0)
+                GameObject.Destroy(targetStat.gameObject);
 
             if(targetStat.Hp > 0)
             {

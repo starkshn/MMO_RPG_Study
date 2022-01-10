@@ -50,7 +50,6 @@ public abstract class UI_Base : MonoBehaviour
 
     // GameObject를 가장 많이 만드는데 이부분 proteted Text처럼 만들어주자
     protected GameObject GetObject(int idx) { return Get<GameObject>(idx); }
-
     protected Text GetText(int idx) { return Get<Text>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
     protected Image GetImage(int idx) { return Get<Image>(idx); }
@@ -63,7 +62,7 @@ public abstract class UI_Base : MonoBehaviour
         //if (evt == null)
         //    evt = go.AddComponent<UI_EventHandler>();
 
-        UI_EventHandler evt = Util.GetOrAddComponent<UI_EventHandler>(go); // 이렇게 컴포넌ㅌ, 추가했으니 type에 따라서 연동을 키져주자
+        UI_EventHandler evt = Util.GetOrAddComponent<UI_EventHandler>(go); // 이렇게 컴포넌트, 추가했으니 type에 따라서 연동을 키져주자
         switch(type)
         {
             case Define.UIEvent.Click:

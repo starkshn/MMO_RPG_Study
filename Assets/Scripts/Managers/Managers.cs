@@ -19,7 +19,6 @@ public class Managers : MonoBehaviour
     SceneManagerEx _scene = new SceneManagerEx();
     UIManager _ui = new UIManager();
 
-
     public static DataManager Data { get { return Instance._data;  } }
     public static InputManager Input { get { return Instance._input;  } }
     public static PoolManager Pool { get { return Instance._pool; } }
