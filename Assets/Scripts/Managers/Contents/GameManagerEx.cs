@@ -5,15 +5,12 @@ using UnityEngine;
 public class GameManagerEx
 {
     // int <-> GameObject
-
-
     GameObject _player;
     HashSet<GameObject> _monsters = new HashSet<GameObject>();
     //Dictionary<int, GameObject> _player = new Dictionary<int, GameObject>(); 나중에 플레이어가 많아지면 사용하자 , 지금은 본인밖에 없으니까
     
     public GameObject spawn(Define.WorldObject type, string path, Transform parent = null)
     {
-
         GameObject go = Managers.Resource.Instantiate(path, parent);
 
         switch(type)
@@ -57,7 +54,6 @@ public class GameManagerEx
                     if (_monsters.Contains(go))
                         _monsters.Remove(go);
                 }
-                
                 break;
         }
 

@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject _player = null;
 
+    public void SetPlayer (GameObject player) { _player = player; }
+
 
     // [SerializeField] 하면 public 붙인거랑 똑같이 유니티에서도 뜬다.
 
@@ -31,11 +33,11 @@ public class CameraController : MonoBehaviour
         {
             RaycastHit hit;
 
-            if(_player == null)
+            if(_player.IsValid() == false)
             {
-
                 return;
-            }
+            } 
+
 
             if(Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
             {

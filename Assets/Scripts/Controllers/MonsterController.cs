@@ -105,7 +105,7 @@ public class MonsterController : BaseController
             targetStat.Hp -= damage;
 
             if (targetStat.Hp <= 0)
-                GameObject.Destroy(targetStat.gameObject);
+                Managers.Game.Despawn(targetStat.gameObject);
 
             if(targetStat.Hp > 0)
             {

@@ -31,7 +31,6 @@ public abstract class BaseController : MonoBehaviour
                     break;
                 case Define.State.Idle:
                     anim.CrossFade("WAIT", 0.1f);
-                    // anim.SetInt("state", (int)_state);
                     break;
                 case Define.State.Moving:
                     anim.CrossFade("RUN", 0.1f);

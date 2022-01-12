@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
-
     static Managers s_instance; // 유일성 보장된다
 
     // 외부에서 얘를 사용하고싶을때는

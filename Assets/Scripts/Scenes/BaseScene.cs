@@ -24,5 +24,4 @@ public abstract class BaseScene : MonoBehaviour
 
     public abstract void Clear(); // 당장 여기서 정의 할것이 아니니까 abstarct로 
 
-
 }
