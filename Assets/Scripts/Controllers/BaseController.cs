@@ -64,7 +64,6 @@ public abstract class BaseController : MonoBehaviour
             case Define.State.Skill:
                 UpdateSkill();
                 break;
-
         }
 
     }
