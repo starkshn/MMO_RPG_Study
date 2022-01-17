@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     
 
     [SerializeField]
-    Vector3 _delta = new Vector3(0.0f, 5.0f, -5.0f); // _delta 라는 것은 player 기준으로 얼마만큼 떨어져있는지를 나타내는것임
+    Vector3 _delta = new Vector3(0.0f, 4.0f, -4.0f); // _delta 라는 것은 player 기준으로 얼마만큼 떨어져있는지를 나타내는것임
 
     [SerializeField]
     GameObject _player = null;
@@ -39,10 +39,10 @@ public class CameraController : MonoBehaviour
             } 
 
 
-            if(Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
+            if(Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, 1 << (int)Define.Layer.Block))
             {
                 // if true라는 것은 벽을 만났다는 말이니까
-                float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
+                float dist = (hit.point - _player.transform.position).magnitude * 1.0f;
                 // 이렇게하면 방향 벡터의 크기가 나온다. 0.8f 곱한것은 벽보다 살짝 앞으로 위치시키기 위해서이다.
                 transform.position = _player.transform.position + _delta.normalized * dist;
 

@@ -91,16 +91,15 @@ public class PlayerController : BaseController
     {
         if (_lockTarget != null)
         {
-            // TODO
             Stat targetStat = _lockTarget.GetComponent<Stat>();
+            targetStat.OnAttacked(_stat);
 
-            PlayerStat myStat = transform.GetComponent<PlayerStat>();
-
-            int damage = Mathf.Max(0, myStat.Attack - targetStat.Defense);
-            
-            targetStat.Hp -= damage;
+            //PlayerStat myStat = transform.GetComponent<PlayerStat>();
+            //int damage = Mathf.Max(0, myStat.Attack - targetStat.Defense);
+            //targetStat.Hp -= damage;
+            // 위에 세줄은 Stat에서 함수로 구현을 해놓은거임 == OnAttacked()함수
         }
-
+        
         //TODO
         if(_stopSkill)
         {
@@ -148,7 +147,7 @@ public class PlayerController : BaseController
                 {
                     if (raycastHit)
                     {
-                        _destPos = hit.point;
+                        _destPos = hit.point; 
                         _destPos.y = 0;
 
                         State = Define.State.Moving;
