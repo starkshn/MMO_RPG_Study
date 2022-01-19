@@ -47,7 +47,6 @@ public class UIManager
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
 
-
         GameObject go = Managers.Resource.Instantiate($"UI/3D_UI/{name}");
 
         if (parent != null)

@@ -1196,3 +1196,13 @@ C# parse time         : 203ms
 candidates check time : 35ms
 console write time    : 0ms
 
+[api-updater (non-obsolete-error-filter)] 2022-01-19 PM 6:25:14 : Starting C:/Users/stark/Desktop/2020.3.23f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 141.0308ms
+moved types parse time: 53ms
+candidates parse time : 4ms
+C# parse time         : 235ms
+candidates check time : 45ms
+console write time    : 0ms
+

@@ -129,6 +129,7 @@ public class PlayerController : BaseController
                 break;
         }
     }
+
    void OnMouseEvent_IdleRun(Define.MouseEvent evt)
     {
         if (State == Define.State.Die)
