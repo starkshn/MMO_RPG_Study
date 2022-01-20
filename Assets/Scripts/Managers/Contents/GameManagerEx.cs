@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,12 @@ public class GameManagerEx
     HashSet<GameObject> _monsters = new HashSet<GameObject>();
     //Dictionary<int, GameObject> _player = new Dictionary<int, GameObject>(); 나중에 플레이어가 많아지면 사용하자 , 지금은 본인밖에 없으니까
 
+    public Action<int> OnSpawnEvent;
+ 
     public GameObject GetPlayer() { return _player; }
 
 
-    public GameObject spawn(Define.WorldObject type, string path, Transform parent = null)
+    public GameObject Spawn(Define.WorldObject type, string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);
 
@@ -20,6 +23,8 @@ public class GameManagerEx
         {
             case Define.WorldObject.Monster:
                 _monsters.Add(go);
+                if (OnSpawnEvent != null)
+                    OnSpawnEvent.Invoke(1);
                 break;
             case Define.WorldObject.Player:
                 _player = go;
@@ -55,7 +60,12 @@ public class GameManagerEx
             case Define.WorldObject.Monster:
                 {
                     if (_monsters.Contains(go))
+                    {
                         _monsters.Remove(go);
+                        if(OnSpawnEvent != null)
+                            OnSpawnEvent.Invoke(-1);
+                    }
+                        
                 }
                 break;
         }
