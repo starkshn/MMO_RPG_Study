@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawningPool : MonoBehaviour
 {
 
     [SerializeField]
     int _monsterCount = 0;
+    int _reserveCount = 0;
 
     [SerializeField]
     int _keepMonsterCount = 0;
@@ -20,9 +22,9 @@ public class SpawningPool : MonoBehaviour
     [SerializeField]
     float _spawnTime = 5.0f;
 
-    private void AddMonsterCount(int value) { _monsterCount += value; }
+    public void AddMonsterCount(int value) { _monsterCount += value; }
 
-    private void KeepMonsterCount(int count) { _keepMonsterCount = count; }
+    public void SetKeepMonsterCount(int count) { _keepMonsterCount = count; }
     
     void Start()
     {
@@ -33,7 +35,7 @@ public class SpawningPool : MonoBehaviour
     
     void Update()
     {
-        while(_monsterCount < _keepMonsterCount)
+        while(_reserveCount + _monsterCount < _keepMonsterCount)
         {
             StartCoroutine("ReserveSpawn");
         }
@@ -42,16 +44,29 @@ public class SpawningPool : MonoBehaviour
     
     IEnumerator ReserveSpawn()
     {
+        _reserveCount++;
 
         yield return new WaitForSeconds(Random.Range(0, _spawnTime));
 
         GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
+        NavMeshAgent nma = obj.GetOrAddComponent<NavMeshAgent>();
 
         Vector3 randPos;
 
-        Vector3 randDir = Random.insideUnitSphere * _spawnRadius;
-        randDir.y = 0;
+        while(true)
+        {
+            Vector3 randDir = Random.insideUnitSphere * Random.Range(0, _spawnRadius);
+            randDir.y = 0;
+            randPos = _spawnPos + randDir;
 
-        yield return null;
+            // randPos가 갈 수 있는 것인가?를 체크
+            NavMeshPath path = new NavMeshPath();
+            if (nma.CalculatePath(randPos, path))
+                break;
+        }
+
+        obj.transform.position = randPos;
+        _reserveCount--;
+        
     }
 }

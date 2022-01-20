@@ -15,7 +15,6 @@ public class PlayerController : BaseController
 
     public override void init()
     {
-
         WorldObjectType = Define.WorldObject.Player;
 
         _stat = gameObject.GetComponent<PlayerStat>();
@@ -28,7 +27,6 @@ public class PlayerController : BaseController
 
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
             Managers.UI.Make3D_UI<UI_HPBar>(transform);
-
     }
 
     protected override void UpdateMoving()
@@ -46,11 +44,11 @@ public class PlayerController : BaseController
 
         // 이동하는 부분
         Vector3 dir = _destPos - transform.position;
+        dir.y = 0;
         if (dir.magnitude < 0.1f)
         {
             //_moveToDest = false; 목적지에 도달한 상태이니까
             State = Define.State.Idle;
-
         }
         else
         {
